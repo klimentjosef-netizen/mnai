@@ -112,6 +112,8 @@ nav.scrolled {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   position: relative;
   overflow: hidden;
   padding: 0 64px;
@@ -202,15 +204,9 @@ nav.scrolled {
   margin-bottom: 32px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   opacity: 0.9;
-}
-
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 36px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--purple-bright));
 }
 
 .hero-title {
@@ -240,7 +236,7 @@ nav.scrolled {
   margin-bottom: 52px;
 }
 
-.hero-actions { display: flex; gap: 24px; align-items: center; }
+.hero-actions { display: flex; gap: 24px; align-items: center; justify-content: center; }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--purple-glow), var(--nebula-pink) 150%);
@@ -285,7 +281,8 @@ nav.scrolled {
 
 .hero-scroll {
   position: absolute;
-  bottom: 40px; left: 64px;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 14px;
