@@ -123,6 +123,65 @@ if (themeToggle) {
   });
 }
 
+/* ===== 3D CUBE LOGO ===== */
+const logoCube = document.querySelector('.logo-cube-3d');
+if (logoCube) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const V = [[-1,-1,-1],[1,-1,-1],[1,-1,1],[-1,-1,1],[-1,1,-1],[1,1,-1],[1,1,1],[-1,1,1]];
+  const E = [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+  const EC = ['#D040C8','#B855D4','#9B59D4','#C040B8','#8030B8','#7045D0','#4B6EE0','#6050C8','#B040C0','#9B59D4','#5070E0','#4060C8'];
+  const VC = ['#F0C0FF','#9B59D4','#C080FF','#E040C8','#A030C0','#6060D0','#4060C8','#8050D0'];
+
+  const edgeEls = E.map((_, i) => {
+    const l = document.createElementNS(ns, 'line');
+    l.setAttribute('stroke', EC[i]);
+    l.setAttribute('stroke-width', '1');
+    l.setAttribute('opacity', '0.75');
+    logoCube.appendChild(l);
+    return l;
+  });
+
+  const vertEls = V.map((_, i) => {
+    const c = document.createElementNS(ns, 'circle');
+    c.setAttribute('r', '1.6');
+    c.setAttribute('fill', VC[i]);
+    logoCube.appendChild(c);
+    return c;
+  });
+
+  const xTilt = 0.55;
+  const cx2 = Math.cos(xTilt), sx2 = Math.sin(xTilt);
+
+  function updateCube(t) {
+    const a = t * 0.0008;
+    const cy2 = Math.cos(a), sy2 = Math.sin(a);
+
+    const proj = V.map(([x, y, z]) => {
+      const rx = x * cy2 + z * sy2;
+      const rz = -x * sy2 + z * cy2;
+      const fy = y * cx2 - rz * sx2;
+      return [25 + rx * 13, 25 + fy * 13];
+    });
+
+    edgeEls.forEach((el, i) => {
+      const [a2, b] = E[i];
+      el.setAttribute('x1', proj[a2][0]);
+      el.setAttribute('y1', proj[a2][1]);
+      el.setAttribute('x2', proj[b][0]);
+      el.setAttribute('y2', proj[b][1]);
+    });
+
+    vertEls.forEach((el, i) => {
+      el.setAttribute('cx', proj[i][0]);
+      el.setAttribute('cy', proj[i][1]);
+    });
+
+    requestAnimationFrame(updateCube);
+  }
+
+  requestAnimationFrame(updateCube);
+}
+
 /* ===== FAQ ===== */
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {

@@ -11,52 +11,37 @@
     </filter>
   </defs>
 
-  <style>
-    @keyframes cubeRotate {
-      0%   { transform: rotateY(0deg); }
-      100% { transform: rotateY(360deg); }
-    }
-    .cube-group {
-      transform-origin: 30px 30px;
-      animation: cubeRotate 12s linear infinite;
-      transform-style: preserve-3d;
-    }
-  </style>
+  <!-- face fills -->
+  <polygon points="30,4  50,14 30,24 10,14" fill="rgba(155,89,212,0.07)"/>
+  <polygon points="10,14 30,24 30,57 10,47" fill="rgba(107,63,160,0.05)"/>
+  <polygon points="50,14 30,24 30,57 50,47" fill="rgba(75,142,245,0.06)"/>
 
-  <!-- CUBE -->
-  <g class="cube-group">
-    <!-- face fills -->
-    <polygon points="30,4  50,14 30,24 10,14" fill="rgba(155,89,212,0.07)"/>
-    <polygon points="10,14 30,24 30,57 10,47" fill="rgba(107,63,160,0.05)"/>
-    <polygon points="50,14 30,24 30,57 50,47" fill="rgba(75,142,245,0.06)"/>
-
-    <!-- glow pass -->
-    <g filter="url(#glow)" opacity="0.65">
-      <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#wireGrad)" stroke-width="1.2" fill="none"/>
-      <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="1.2"/>
-      <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="1.2"/>
-      <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="1.2"/>
-      <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="1.2"/>
-      <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="1.2"/>
-    </g>
-
-    <!-- sharp pass -->
-    <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#wireGrad)" stroke-width="0.8" fill="none"/>
-    <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="0.8"/>
-    <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="0.8"/>
-    <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="0.8"/>
-    <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="0.8"/>
-    <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="0.8"/>
-
-    <!-- vertex dots -->
-    <circle cx="30" cy="4"  r="1.8" fill="#F0C0FF" filter="url(#glow)"/>
-    <circle cx="50" cy="14" r="1.4" fill="#9B59D4" filter="url(#glow)"/>
-    <circle cx="10" cy="14" r="1.4" fill="#E040C8" filter="url(#glow)"/>
-    <circle cx="30" cy="24" r="1.4" fill="#C080FF" filter="url(#glow)"/>
-    <circle cx="30" cy="57" r="1.4" fill="#6060D0" filter="url(#glow)"/>
-    <circle cx="10" cy="47" r="1.2" fill="#A030C0" filter="url(#glow)"/>
-    <circle cx="50" cy="47" r="1.2" fill="#4060C8" filter="url(#glow)"/>
+  <!-- glow pass -->
+  <g filter="url(#glow)" opacity="0.65">
+    <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#wireGrad)" stroke-width="1.2" fill="none"/>
+    <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="1.2"/>
+    <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="1.2"/>
+    <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="1.2"/>
+    <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="1.2"/>
+    <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="1.2"/>
   </g>
+
+  <!-- sharp pass -->
+  <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#wireGrad)" stroke-width="0.8" fill="none"/>
+  <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="0.8"/>
+  <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="0.8"/>
+  <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="0.8"/>
+  <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="0.8"/>
+  <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="0.8"/>
+
+  <!-- vertex dots -->
+  <circle cx="30" cy="4"  r="1.8" fill="#F0C0FF" filter="url(#glow)"/>
+  <circle cx="50" cy="14" r="1.4" fill="#9B59D4" filter="url(#glow)"/>
+  <circle cx="10" cy="14" r="1.4" fill="#E040C8" filter="url(#glow)"/>
+  <circle cx="30" cy="24" r="1.4" fill="#C080FF" filter="url(#glow)"/>
+  <circle cx="30" cy="57" r="1.4" fill="#6060D0" filter="url(#glow)"/>
+  <circle cx="10" cy="47" r="1.2" fill="#A030C0" filter="url(#glow)"/>
+  <circle cx="50" cy="47" r="1.2" fill="#4060C8" filter="url(#glow)"/>
 
   <!-- LOGOTYPE -->
   <text x="68" y="38"
