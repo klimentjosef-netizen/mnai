@@ -599,9 +599,10 @@ nav.scrolled {
 .team-card:hover::before { opacity: 1; }
 
 .team-img {
-  width: 68px; height: 68px;
+  width: 120px; height: 120px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 20%;
   margin-bottom: 20px;
   border: 1px solid rgba(155,89,212,0.4);
   filter: grayscale(20%);
