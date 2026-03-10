@@ -13,6 +13,77 @@
   --gold-light:     #E2C98A;
 }
 
+/* ===================== LIGHT THEME ===================== */
+[data-theme="light"] {
+  --purple-deep:    #F5F3FA;
+  --purple-dark:    #EDE9F5;
+  --purple-mid:     #E0D9EE;
+  --purple-glow:    #7B4DB5;
+  --purple-bright:  #9B59D4;
+  --purple-light:   #6B3FA0;
+  --nebula-pink:    #C030A8;
+  --nebula-blue:    #3A7DE0;
+  --star-white:     #1A1528;
+  --text-dim:       rgba(30,22,64,0.6);
+  --gold:           #A08040;
+  --gold-light:     #C09850;
+}
+
+[data-theme="light"] #starfield { opacity: 0.08; }
+[data-theme="light"] .nebula-hero { opacity: 0.3; }
+[data-theme="light"] nav#nav.scrolled {
+  background: rgba(245,243,250,0.92);
+  border-bottom-color: rgba(155,89,212,0.15);
+}
+[data-theme="light"] .service-card { background: var(--purple-dark); }
+[data-theme="light"] .service-card:hover { background: var(--purple-mid); }
+[data-theme="light"] .team-card { background: var(--purple-dark); }
+[data-theme="light"] .team-card:hover { background: var(--purple-mid); }
+[data-theme="light"] .team-img { filter: none; }
+[data-theme="light"] .client-name { color: rgba(30,22,64,0.3); }
+[data-theme="light"] .faq-icon { border-color: rgba(107,63,160,0.3); }
+[data-theme="light"] .btn-primary { color: #fff; }
+[data-theme="light"] .hero-scroll { color: rgba(30,22,64,0.3); }
+
+/* ===================== NAV CONTROLS ===================== */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 24px;
+}
+
+.theme-toggle, .lang-toggle {
+  background: none;
+  border: 1px solid rgba(155,89,212,0.3);
+  color: var(--purple-light);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 16px;
+  padding: 0;
+}
+
+.theme-toggle:hover, .lang-toggle:hover {
+  background: rgba(155,89,212,0.15);
+  border-color: var(--purple-bright);
+}
+
+.lang-toggle {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.05em;
+  width: auto;
+  padding: 0 12px;
+  border-radius: 18px;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -619,6 +690,91 @@ nav#nav.scrolled {
   color: var(--text-dim);
 }
 
+/* ===================== BLOG PREVIEW ===================== */
+.blog-section {
+  padding: 120px 64px;
+  background: var(--purple-dark);
+  border-top: 1px solid rgba(155,89,212,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.blog-inner { max-width: 1180px; margin: 0 auto; }
+
+.blog-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.blog-preview-card {
+  background: var(--purple-deep);
+  padding: 36px 32px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(155,89,212,0.08);
+}
+
+.blog-preview-card:hover {
+  background: var(--purple-mid);
+  transform: translateY(-3px);
+}
+
+.blog-preview-tag {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--purple-bright);
+  margin-bottom: 16px;
+}
+
+.blog-preview-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--star-white);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.blog-preview-excerpt {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.blog-preview-meta {
+  font-size: 11px;
+  color: rgba(155,89,212,0.5);
+  margin-top: 20px;
+}
+
+.blog-all-link {
+  display: inline-block;
+  margin-top: 40px;
+  color: var(--purple-light);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.blog-all-link:hover { color: var(--purple-bright); }
+
+.blog-all-link::after {
+  content: ' \2192';
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
 /* ===================== FAQ ===================== */
 .faq-section {
   padding: 120px 64px;
@@ -799,7 +955,7 @@ footer {
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 900px) {
-  nav#nav, .hero, .intro, .services-wrap, .team-section, .faq-section, .contact-section, footer {
+  nav#nav, .hero, .intro, .services-wrap, .team-section, .blog-section, .faq-section, .contact-section, footer {
     padding-left: 24px;
     padding-right: 24px;
   }
@@ -814,4 +970,6 @@ footer {
   .footer-links { justify-content: center; }
   .hero-scroll { left: 24px; }
   .ring-1, .ring-2, .ring-3 { opacity: 0.5; }
+  .blog-preview-grid { grid-template-columns: 1fr; }
+  .nav-controls { margin-left: 12px; gap: 8px; }
 }
