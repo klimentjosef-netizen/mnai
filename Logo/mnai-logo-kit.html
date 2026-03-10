@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M&Ai — Logo Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Raleway:wght@300;400;600&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #07051A;
+    color: #E4D8FF;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    padding: 64px 56px 100px;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(196,160,255,0.4);
+    margin-bottom: 64px;
+    text-align: center;
+  }
+
+  .section {
+    max-width: 1060px;
+    margin: 0 auto 72px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: rgba(155,89,212,0.6);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: rgba(155,89,212,0.5);
+  }
+
+  .variants-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: rgba(155,89,212,0.1);
+  }
+
+  .variant-card {
+    padding: 48px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .bg-dark   { background: #0D0B22; }
+  .bg-mid    { background: #1E1640; }
+  .bg-black  { background: #000000; }
+  .bg-light  { background: #F2EEF9; }
+
+  .variant-name {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(196,160,255,0.35);
+  }
+
+  .variant-name-dark {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(80,40,140,0.45);
+  }
+
+  /* horizontal logo row */
+  .horiz-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(155,89,212,0.1);
+  }
+
+  .horiz-card {
+    padding: 44px 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* size showcase */
+  .sizes-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    background: #0D0B22;
+    padding: 48px 40px;
+    flex-wrap: wrap;
+  }
+
+  .size-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .size-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(196,160,255,0.3);
+  }
+
+  /* code block */
+  .code-block {
+    background: #0A0818;
+    border: 1px solid rgba(155,89,212,0.15);
+    border-radius: 0;
+    padding: 28px 32px;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(220,200,255,0.75);
+    overflow-x: auto;
+  }
+
+  .code-block .cm { color: rgba(155,89,212,0.55); }
+  .code-block .tg { color: #9B59D4; }
+  .code-block .at { color: #C080FF; }
+  .code-block .vl { color: #E0C0FF; }
+  .code-block .tx { color: rgba(220,200,255,0.6); }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(155,89,212,0.2), transparent);
+    margin: 0 0 72px;
+    max-width: 1060px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<p class="page-title">M &amp; Ai — Logo Kit · Holographic Cube</p>
+
+<!-- ===== ICON VARIANTS ===== -->
+<div class="section">
+  <div class="section-label">Ikona — různá pozadí</div>
+  <div class="variants-row">
+
+    <div class="variant-card bg-dark">
+      <!-- CUBE SVG -->
+      <svg width="80" height="80" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wg1" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E040C8"/>
+            <stop offset="40%" stop-color="#9B59D4"/>
+            <stop offset="100%" stop-color="#4B8EF5"/>
+          </linearGradient>
+          <filter id="gl1" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="2.8" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.07)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.05)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.06)"/>
+        <g filter="url(#gl1)" opacity="0.65">
+          <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg1)" stroke-width="1.5" fill="none"/>
+          <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/>
+          <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/>
+          <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/>
+          <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/>
+          <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/>
+        </g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg1)" stroke-width="1" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1"/>
+        <circle cx="60" cy="20"  r="2.8" fill="#F0C0FF" filter="url(#gl1)"/>
+        <circle cx="92" cy="38"  r="2.2" fill="#9B59D4" filter="url(#gl1)"/>
+        <circle cx="28" cy="38"  r="2.2" fill="#E040C8" filter="url(#gl1)"/>
+        <circle cx="60" cy="56"  r="2.2" fill="#C080FF" filter="url(#gl1)"/>
+        <circle cx="60" cy="100" r="2.2" fill="#6060D0" filter="url(#gl1)"/>
+        <circle cx="28" cy="82"  r="2.0" fill="#A030C0" filter="url(#gl1)"/>
+        <circle cx="92" cy="82"  r="2.0" fill="#4060C8" filter="url(#gl1)"/>
+      </svg>
+      <div class="variant-name">Tmavé pozadí</div>
+    </div>
+
+    <div class="variant-card bg-mid">
+      <svg width="80" height="80" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wg2" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E040C8"/>
+            <stop offset="40%" stop-color="#9B59D4"/>
+            <stop offset="100%" stop-color="#4B8EF5"/>
+          </linearGradient>
+          <filter id="gl2" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="2.8" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.09)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.07)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.08)"/>
+        <g filter="url(#gl2)" opacity="0.7">
+          <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg2)" stroke-width="1.5" fill="none"/>
+          <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/>
+          <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/>
+          <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/>
+          <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/>
+          <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/>
+        </g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg2)" stroke-width="1" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1"/>
+        <circle cx="60" cy="20"  r="2.8" fill="#F0C0FF" filter="url(#gl2)"/>
+        <circle cx="92" cy="38"  r="2.2" fill="#9B59D4" filter="url(#gl2)"/>
+        <circle cx="28" cy="38"  r="2.2" fill="#E040C8" filter="url(#gl2)"/>
+        <circle cx="60" cy="56"  r="2.2" fill="#C080FF" filter="url(#gl2)"/>
+        <circle cx="60" cy="100" r="2.2" fill="#6060D0" filter="url(#gl2)"/>
+        <circle cx="28" cy="82"  r="2.0" fill="#A030C0" filter="url(#gl2)"/>
+        <circle cx="92" cy="82"  r="2.0" fill="#4060C8" filter="url(#gl2)"/>
+      </svg>
+      <div class="variant-name">Purple pozadí</div>
+    </div>
+
+    <div class="variant-card bg-black">
+      <svg width="80" height="80" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wg3" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E040C8"/>
+            <stop offset="40%" stop-color="#9B59D4"/>
+            <stop offset="100%" stop-color="#4B8EF5"/>
+          </linearGradient>
+          <filter id="gl3" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="3.5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.06)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.04)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.05)"/>
+        <g filter="url(#gl3)" opacity="0.8">
+          <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg3)" stroke-width="1.5" fill="none"/>
+          <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/>
+          <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/>
+          <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/>
+          <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/>
+          <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/>
+        </g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg3)" stroke-width="1" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1"/>
+        <circle cx="60" cy="20"  r="2.8" fill="#F0C0FF" filter="url(#gl3)"/>
+        <circle cx="92" cy="38"  r="2.2" fill="#9B59D4" filter="url(#gl3)"/>
+        <circle cx="28" cy="38"  r="2.2" fill="#E040C8" filter="url(#gl3)"/>
+        <circle cx="60" cy="56"  r="2.2" fill="#C080FF" filter="url(#gl3)"/>
+        <circle cx="60" cy="100" r="2.2" fill="#6060D0" filter="url(#gl3)"/>
+        <circle cx="28" cy="82"  r="2.0" fill="#A030C0" filter="url(#gl3)"/>
+        <circle cx="92" cy="82"  r="2.0" fill="#4060C8" filter="url(#gl3)"/>
+      </svg>
+      <div class="variant-name">Černé pozadí</div>
+    </div>
+
+    <div class="variant-card bg-light">
+      <svg width="80" height="80" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wg4" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#C030A8"/>
+            <stop offset="40%" stop-color="#7B2FBF"/>
+            <stop offset="100%" stop-color="#3B6EE5"/>
+          </linearGradient>
+          <filter id="gl4" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="1.8" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.05)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.04)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.04)"/>
+        <g filter="url(#gl4)" opacity="0.5">
+          <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg4)" stroke-width="1.5" fill="none"/>
+          <line x1="60" y1="56" x2="60" y2="100" stroke="#7B2FBF" stroke-width="1.5"/>
+          <line x1="28" y1="38" x2="28" y2="82" stroke="#9830B8" stroke-width="1.5"/>
+          <line x1="92" y1="38" x2="92" y2="82" stroke="#4060D8" stroke-width="1.5"/>
+          <line x1="28" y1="82" x2="60" y2="100" stroke="#7030A8" stroke-width="1.5"/>
+          <line x1="92" y1="82" x2="60" y2="100" stroke="#3850C8" stroke-width="1.5"/>
+        </g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wg4)" stroke-width="1.2" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#7B2FBF" stroke-width="1.2"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#9830B8" stroke-width="1.2"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#4060D8" stroke-width="1.2"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#7030A8" stroke-width="1.2"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#3850C8" stroke-width="1.2"/>
+        <circle cx="60" cy="20"  r="2.8" fill="#B030A0"/>
+        <circle cx="92" cy="38"  r="2.2" fill="#6B2FAF"/>
+        <circle cx="28" cy="38"  r="2.2" fill="#C030A8"/>
+        <circle cx="60" cy="56"  r="2.2" fill="#7040C0"/>
+        <circle cx="60" cy="100" r="2.2" fill="#4050B0"/>
+        <circle cx="28" cy="82"  r="2.0" fill="#6030A0"/>
+        <circle cx="92" cy="82"  r="2.0" fill="#3050B8"/>
+      </svg>
+      <div class="variant-name-dark">Světlé pozadí</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== HORIZONTAL LOGO ===== -->
+<div class="section">
+  <div class="section-label">Horizontální logo — s logotypem</div>
+  <div class="horiz-row">
+
+    <div class="horiz-card bg-dark">
+      <svg width="200" height="54" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hwg1" x1="10" y1="4" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E040C8"/>
+            <stop offset="40%" stop-color="#9B59D4"/>
+            <stop offset="100%" stop-color="#4B8EF5"/>
+          </linearGradient>
+          <filter id="hgl1" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="1.4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <polygon points="30,4  50,14 30,24 10,14" fill="rgba(155,89,212,0.07)"/>
+        <polygon points="10,14 30,24 30,57 10,47" fill="rgba(107,63,160,0.05)"/>
+        <polygon points="50,14 30,24 30,57 50,47" fill="rgba(75,142,245,0.06)"/>
+        <g filter="url(#hgl1)" opacity="0.65">
+          <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#hwg1)" stroke-width="1.2" fill="none"/>
+          <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="1.2"/>
+          <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="1.2"/>
+          <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="1.2"/>
+          <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="1.2"/>
+        </g>
+        <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#hwg1)" stroke-width="0.8" fill="none"/>
+        <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="0.8"/>
+        <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="0.8"/>
+        <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="0.8"/>
+        <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="0.8"/>
+        <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="0.8"/>
+        <circle cx="30" cy="4"  r="1.8" fill="#F0C0FF" filter="url(#hgl1)"/>
+        <circle cx="50" cy="14" r="1.4" fill="#9B59D4" filter="url(#hgl1)"/>
+        <circle cx="10" cy="14" r="1.4" fill="#E040C8" filter="url(#hgl1)"/>
+        <circle cx="30" cy="24" r="1.4" fill="#C080FF" filter="url(#hgl1)"/>
+        <circle cx="30" cy="57" r="1.4" fill="#6060D0" filter="url(#hgl1)"/>
+        <circle cx="10" cy="47" r="1.2" fill="#A030C0" filter="url(#hgl1)"/>
+        <circle cx="50" cy="47" r="1.2" fill="#4060C8" filter="url(#hgl1)"/>
+        <text x="68" y="36" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="600" letter-spacing="2" fill="#D4AAFF">M&amp;Ai</text>
+        <text x="69" y="50" font-family="'Raleway', Helvetica Neue, sans-serif" font-size="7" font-weight="400" letter-spacing="3.5" fill="rgba(196,160,255,0.45)">FÚZE &amp; AKVIZICE</text>
+      </svg>
+    </div>
+
+    <div class="horiz-card bg-light">
+      <svg width="200" height="54" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hwg2" x1="10" y1="4" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#C030A8"/>
+            <stop offset="40%" stop-color="#7B2FBF"/>
+            <stop offset="100%" stop-color="#3B6EE5"/>
+          </linearGradient>
+          <filter id="hgl2" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="1" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <polygon points="30,4  50,14 30,24 10,14" fill="rgba(155,89,212,0.05)"/>
+        <polygon points="10,14 30,24 30,57 10,47" fill="rgba(107,63,160,0.04)"/>
+        <polygon points="50,14 30,24 30,57 50,47" fill="rgba(75,142,245,0.04)"/>
+        <g filter="url(#hgl2)" opacity="0.5">
+          <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#hwg2)" stroke-width="1.2" fill="none"/>
+          <line x1="30" y1="24" x2="30" y2="57" stroke="#7B2FBF" stroke-width="1.2"/>
+          <line x1="10" y1="14" x2="10" y2="47" stroke="#9830B8" stroke-width="1.2"/>
+          <line x1="50" y1="14" x2="50" y2="47" stroke="#4060D8" stroke-width="1.2"/>
+          <line x1="10" y1="47" x2="30" y2="57" stroke="#7030A8" stroke-width="1.2"/>
+          <line x1="50" y1="47" x2="30" y2="57" stroke="#3850C8" stroke-width="1.2"/>
+        </g>
+        <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#hwg2)" stroke-width="1" fill="none"/>
+        <line x1="30" y1="24" x2="30" y2="57" stroke="#7B2FBF" stroke-width="1"/>
+        <line x1="10" y1="14" x2="10" y2="47" stroke="#9830B8" stroke-width="1"/>
+        <line x1="50" y1="14" x2="50" y2="47" stroke="#4060D8" stroke-width="1"/>
+        <line x1="10" y1="47" x2="30" y2="57" stroke="#7030A8" stroke-width="1"/>
+        <line x1="50" y1="47" x2="30" y2="57" stroke="#3850C8" stroke-width="1"/>
+        <circle cx="30" cy="4"  r="1.8" fill="#B030A0"/>
+        <circle cx="50" cy="14" r="1.4" fill="#6B2FAF"/>
+        <circle cx="10" cy="14" r="1.4" fill="#C030A8"/>
+        <circle cx="30" cy="24" r="1.4" fill="#7040C0"/>
+        <circle cx="30" cy="57" r="1.4" fill="#4050B0"/>
+        <circle cx="10" cy="47" r="1.2" fill="#6030A0"/>
+        <circle cx="50" cy="47" r="1.2" fill="#3050B8"/>
+        <text x="68" y="36" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="600" letter-spacing="2" fill="#5B1FA0">M&amp;Ai</text>
+        <text x="69" y="50" font-family="'Raleway', Helvetica Neue, sans-serif" font-size="7" font-weight="400" letter-spacing="3.5" fill="rgba(80,30,150,0.45)">FÚZE &amp; AKVIZICE</text>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== SIZE VARIANTS ===== -->
+<div class="section">
+  <div class="section-label">Velikosti — favicon → display</div>
+  <div class="sizes-row">
+
+    <div class="size-item">
+      <svg width="16" height="16" viewBox="0 0 120 120" fill="none">
+        <defs>
+          <linearGradient id="sg1" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E040C8"/>
+            <stop offset="50%" stop-color="#9B59D4"/>
+            <stop offset="100%" stop-color="#4B8EF5"/>
+          </linearGradient>
+        </defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.2)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.15)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.18)"/>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg1)" stroke-width="3" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="3"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="3"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="3"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="3"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="3"/>
+      </svg>
+      <span class="size-label">16px</span>
+    </div>
+
+    <div class="size-item">
+      <svg width="32" height="32" viewBox="0 0 120 120" fill="none">
+        <defs><linearGradient id="sg2" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E040C8"/><stop offset="50%" stop-color="#9B59D4"/><stop offset="100%" stop-color="#4B8EF5"/></linearGradient><filter id="gls2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.07)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.05)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.06)"/>
+        <g filter="url(#gls2)" opacity="0.6"><polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg2)" stroke-width="1.5" fill="none"/><line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/><line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/><line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/><line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/><line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/></g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg2)" stroke-width="1" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+        <circle cx="60" cy="20" r="2.8" fill="#F0C0FF" filter="url(#gls2)"/>
+        <circle cx="28" cy="38" r="2.2" fill="#E040C8" filter="url(#gls2)"/>
+        <circle cx="92" cy="38" r="2.2" fill="#9B59D4" filter="url(#gls2)"/>
+      </svg>
+      <span class="size-label">32px</span>
+    </div>
+
+    <div class="size-item">
+      <svg width="48" height="48" viewBox="0 0 120 120" fill="none">
+        <defs><linearGradient id="sg3" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E040C8"/><stop offset="40%" stop-color="#9B59D4"/><stop offset="100%" stop-color="#4B8EF5"/></linearGradient><filter id="gls3" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.07)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.05)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.06)"/>
+        <g filter="url(#gls3)" opacity="0.65"><polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg3)" stroke-width="1.5" fill="none"/><line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/><line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/><line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/><line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/><line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/></g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg3)" stroke-width="1" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1"/>
+        <circle cx="60" cy="20"  r="2.8" fill="#F0C0FF" filter="url(#gls3)"/>
+        <circle cx="92" cy="38"  r="2.2" fill="#9B59D4" filter="url(#gls3)"/>
+        <circle cx="28" cy="38"  r="2.2" fill="#E040C8" filter="url(#gls3)"/>
+        <circle cx="60" cy="56"  r="2.2" fill="#C080FF" filter="url(#gls3)"/>
+        <circle cx="60" cy="100" r="2.2" fill="#6060D0" filter="url(#gls3)"/>
+        <circle cx="28" cy="82"  r="2.0" fill="#A030C0" filter="url(#gls3)"/>
+        <circle cx="92" cy="82"  r="2.0" fill="#4060C8" filter="url(#gls3)"/>
+      </svg>
+      <span class="size-label">48px</span>
+    </div>
+
+    <div class="size-item">
+      <svg width="80" height="80" viewBox="0 0 120 120" fill="none">
+        <defs><linearGradient id="sg4" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E040C8"/><stop offset="40%" stop-color="#9B59D4"/><stop offset="100%" stop-color="#4B8EF5"/></linearGradient><filter id="gls4" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.07)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.05)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.06)"/>
+        <g filter="url(#gls4)" opacity="0.65"><polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg4)" stroke-width="1.5" fill="none"/><line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/><line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/><line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/><line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/><line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/></g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg4)" stroke-width="1" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1"/>
+        <circle cx="60" cy="20"  r="2.8" fill="#F0C0FF" filter="url(#gls4)"/>
+        <circle cx="92" cy="38"  r="2.2" fill="#9B59D4" filter="url(#gls4)"/>
+        <circle cx="28" cy="38"  r="2.2" fill="#E040C8" filter="url(#gls4)"/>
+        <circle cx="60" cy="56"  r="2.2" fill="#C080FF" filter="url(#gls4)"/>
+        <circle cx="60" cy="100" r="2.2" fill="#6060D0" filter="url(#gls4)"/>
+        <circle cx="28" cy="82"  r="2.0" fill="#A030C0" filter="url(#gls4)"/>
+        <circle cx="92" cy="82"  r="2.0" fill="#4060C8" filter="url(#gls4)"/>
+      </svg>
+      <span class="size-label">80px</span>
+    </div>
+
+    <div class="size-item">
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <defs><linearGradient id="sg5" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E040C8"/><stop offset="40%" stop-color="#9B59D4"/><stop offset="100%" stop-color="#4B8EF5"/></linearGradient><filter id="gls5" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.07)"/>
+        <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.05)"/>
+        <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.06)"/>
+        <g filter="url(#gls5)" opacity="0.65"><polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg5)" stroke-width="1.5" fill="none"/><line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/><line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/><line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/><line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/><line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/></g>
+        <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#sg5)" stroke-width="1" fill="none"/>
+        <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+        <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1"/>
+        <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1"/>
+        <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1"/>
+        <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1"/>
+        <circle cx="60" cy="20"  r="2.8" fill="#F0C0FF" filter="url(#gls5)"/>
+        <circle cx="92" cy="38"  r="2.2" fill="#9B59D4" filter="url(#gls5)"/>
+        <circle cx="28" cy="38"  r="2.2" fill="#E040C8" filter="url(#gls5)"/>
+        <circle cx="60" cy="56"  r="2.2" fill="#C080FF" filter="url(#gls5)"/>
+        <circle cx="60" cy="100" r="2.2" fill="#6060D0" filter="url(#gls5)"/>
+        <circle cx="28" cy="82"  r="2.0" fill="#A030C0" filter="url(#gls5)"/>
+        <circle cx="92" cy="82"  r="2.0" fill="#4060C8" filter="url(#gls5)"/>
+      </svg>
+      <span class="size-label">120px</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== CODE USAGE ===== -->
+<div class="section">
+  <div class="section-label">Jak použít v HTML / navigaci</div>
+  <div class="code-block">
+<span class="cm">&lt;!-- Ikona jako inline SVG (doporučeno — žádný HTTP request) --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href</span>=<span class="vl">"/"</span> <span class="at">class</span>=<span class="vl">"nav-logo"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;img</span> <span class="at">src</span>=<span class="vl">"mnai-logo-icon.svg"</span> <span class="at">width</span>=<span class="vl">"40"</span> <span class="at">height</span>=<span class="vl">"40"</span> <span class="at">alt</span>=<span class="vl">"M&amp;Ai"</span><span class="tg">/&gt;</span>
+<span class="tg">&lt;/a&gt;</span>
+
+<span class="cm">&lt;!-- Horizontální logo (ikona + text) --&gt;</span>
+<span class="tg">&lt;img</span> <span class="at">src</span>=<span class="vl">"mnai-logo-horizontal.svg"</span> <span class="at">height</span>=<span class="vl">"40"</span> <span class="at">alt</span>=<span class="vl">"M&amp;Ai"</span><span class="tg">/&gt;</span>
+
+<span class="cm">&lt;!-- Jako CSS background --&gt;</span>
+<span class="tx">.logo {
+  background-image: url('mnai-logo-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}</span>
+
+<span class="cm">&lt;!-- Favicon v &lt;head&gt; --&gt;</span>
+<span class="tg">&lt;link</span> <span class="at">rel</span>=<span class="vl">"icon"</span> <span class="at">type</span>=<span class="vl">"image/svg+xml"</span> <span class="at">href</span>=<span class="vl">"mnai-logo-icon.svg"</span><span class="tg">/&gt;</span>
+  </div>
+</div>
+
+</body>
+</html>

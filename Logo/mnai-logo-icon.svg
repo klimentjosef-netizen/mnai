@@ -1,0 +1,45 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wireGrad" x1="28" y1="20" x2="92" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E040C8"/>
+      <stop offset="40%" stop-color="#9B59D4"/>
+      <stop offset="100%" stop-color="#4B8EF5"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- subtle face fills -->
+  <polygon points="60,20 92,38 60,56 28,38" fill="rgba(155,89,212,0.07)"/>
+  <polygon points="28,38 60,56 60,100 28,82" fill="rgba(107,63,160,0.05)"/>
+  <polygon points="92,38 60,56 60,100 92,82" fill="rgba(75,142,245,0.06)"/>
+
+  <!-- glow pass -->
+  <g filter="url(#glow)" opacity="0.65">
+    <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wireGrad)" stroke-width="1.5" fill="none"/>
+    <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1.5"/>
+    <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1.5"/>
+    <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1.5"/>
+    <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1.5"/>
+    <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1.5"/>
+  </g>
+
+  <!-- sharp pass -->
+  <polyline points="60,20 92,38 60,56 28,38 60,20" stroke="url(#wireGrad)" stroke-width="1" fill="none"/>
+  <line x1="60" y1="56" x2="60" y2="100" stroke="#9B59D4" stroke-width="1"/>
+  <line x1="28" y1="38" x2="28" y2="82" stroke="#B040C0" stroke-width="1"/>
+  <line x1="92" y1="38" x2="92" y2="82" stroke="#5070E0" stroke-width="1"/>
+  <line x1="28" y1="82" x2="60" y2="100" stroke="#9030B8" stroke-width="1"/>
+  <line x1="92" y1="82" x2="60" y2="100" stroke="#4060D0" stroke-width="1"/>
+
+  <!-- vertex dots -->
+  <circle cx="60" cy="20"  r="2.8" fill="#F0C0FF" filter="url(#glow)"/>
+  <circle cx="92" cy="38"  r="2.2" fill="#9B59D4" filter="url(#glow)"/>
+  <circle cx="28" cy="38"  r="2.2" fill="#E040C8" filter="url(#glow)"/>
+  <circle cx="60" cy="56"  r="2.2" fill="#C080FF" filter="url(#glow)"/>
+  <circle cx="60" cy="100" r="2.2" fill="#6060D0" filter="url(#glow)"/>
+  <circle cx="28" cy="82"  r="2.0" fill="#A030C0" filter="url(#glow)"/>
+  <circle cx="92" cy="82"  r="2.0" fill="#4060C8" filter="url(#glow)"/>
+</svg>

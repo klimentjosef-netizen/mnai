@@ -1,0 +1,64 @@
+<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wireGrad" x1="10" y1="4" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E040C8"/>
+      <stop offset="40%" stop-color="#9B59D4"/>
+      <stop offset="100%" stop-color="#4B8EF5"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- CUBE (scaled to fit 60px height, centered vertically) -->
+  <!-- top: 60,20 -> 30,7   left:28->10  right:92->50  bottom:100->57 mid:56->34 -->
+  <!-- face fills -->
+  <polygon points="30,4  50,14 30,24 10,14" fill="rgba(155,89,212,0.07)"/>
+  <polygon points="10,14 30,24 30,57 10,47" fill="rgba(107,63,160,0.05)"/>
+  <polygon points="50,14 30,24 30,57 50,47" fill="rgba(75,142,245,0.06)"/>
+
+  <!-- glow pass -->
+  <g filter="url(#glow)" opacity="0.65">
+    <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#wireGrad)" stroke-width="1.2" fill="none"/>
+    <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="1.2"/>
+    <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="1.2"/>
+    <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="1.2"/>
+    <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="1.2"/>
+    <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="1.2"/>
+  </g>
+
+  <!-- sharp pass -->
+  <polyline points="30,4 50,14 30,24 10,14 30,4" stroke="url(#wireGrad)" stroke-width="0.8" fill="none"/>
+  <line x1="30" y1="24" x2="30" y2="57" stroke="#9B59D4" stroke-width="0.8"/>
+  <line x1="10" y1="14" x2="10" y2="47" stroke="#B040C0" stroke-width="0.8"/>
+  <line x1="50" y1="14" x2="50" y2="47" stroke="#5070E0" stroke-width="0.8"/>
+  <line x1="10" y1="47" x2="30" y2="57" stroke="#9030B8" stroke-width="0.8"/>
+  <line x1="50" y1="47" x2="30" y2="57" stroke="#4060D0" stroke-width="0.8"/>
+
+  <!-- vertex dots -->
+  <circle cx="30" cy="4"  r="1.8" fill="#F0C0FF" filter="url(#glow)"/>
+  <circle cx="50" cy="14" r="1.4" fill="#9B59D4" filter="url(#glow)"/>
+  <circle cx="10" cy="14" r="1.4" fill="#E040C8" filter="url(#glow)"/>
+  <circle cx="30" cy="24" r="1.4" fill="#C080FF" filter="url(#glow)"/>
+  <circle cx="30" cy="57" r="1.4" fill="#6060D0" filter="url(#glow)"/>
+  <circle cx="10" cy="47" r="1.2" fill="#A030C0" filter="url(#glow)"/>
+  <circle cx="50" cy="47" r="1.2" fill="#4060C8" filter="url(#glow)"/>
+
+  <!-- LOGOTYPE -->
+  <text x="68" y="36"
+    font-family="'Cormorant Garamond', 'Georgia', serif"
+    font-size="30"
+    font-weight="600"
+    letter-spacing="2"
+    fill="#D4AAFF">M&amp;Ai</text>
+
+  <!-- tagline -->
+  <text x="69" y="50"
+    font-family="'Raleway', 'Helvetica Neue', sans-serif"
+    font-size="7"
+    font-weight="400"
+    letter-spacing="3.5"
+    fill="rgba(196,160,255,0.45)"
+    text-transform="uppercase">FÚZE &amp; AKVIZICE</text>
+</svg>
