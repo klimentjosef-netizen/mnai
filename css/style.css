@@ -8,7 +8,7 @@
   --nebula-pink:    #E040C8;
   --nebula-blue:    #4B8EF5;
   --star-white:     #F4F0FF;
-  --text-dim:       rgba(196,180,255,0.6);
+  --text-dim:       rgba(210,195,255,0.78);
   --gold:           #C8A96E;
   --gold-light:     #E2C98A;
 }
@@ -24,7 +24,7 @@
   --nebula-pink:    #C030A8;
   --nebula-blue:    #3A7DE0;
   --star-white:     #1A1528;
-  --text-dim:       rgba(30,22,64,0.6);
+  --text-dim:       rgba(30,22,64,0.78);
   --gold:           #A08040;
   --gold-light:     #C09850;
 }
@@ -82,6 +82,12 @@
   width: auto;
   padding: 0 12px;
   border-radius: 18px;
+  text-decoration: none;
+}
+
+.lang-group {
+  display: flex;
+  gap: 6px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -579,7 +585,7 @@ nav#nav.scrolled {
   font-size: 10px;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: rgba(196,180,255,0.4);
+  color: rgba(196,180,255,0.55);
   margin-bottom: 44px;
 }
 
@@ -605,7 +611,7 @@ nav#nav.scrolled {
   font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
   font-weight: 400;
-  color: rgba(196,180,255,0.25);
+  color: rgba(196,180,255,0.4);
   white-space: nowrap;
   transition: color 0.3s;
   letter-spacing: 0.04em;
@@ -927,7 +933,7 @@ footer {
 
 .footer-copy {
   font-size: 11px;
-  color: rgba(196,180,255,0.25);
+  color: rgba(196,180,255,0.4);
   letter-spacing: 0.1em;
 }
 
@@ -937,7 +943,7 @@ footer {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(196,180,255,0.35);
+  color: rgba(196,180,255,0.5);
   text-decoration: none;
   transition: color 0.3s;
 }
