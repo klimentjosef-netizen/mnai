@@ -21,8 +21,7 @@
   padding: 80px 64px 120px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(155,89,212,0.1);
+  gap: 24px;
   position: relative;
   z-index: 1;
 }
