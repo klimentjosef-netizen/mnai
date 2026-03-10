@@ -45,9 +45,9 @@
 
   <!-- LOGOTYPE -->
   <text x="68" y="38"
-    font-family="'Cormorant Garamond', 'Georgia', serif"
-    font-size="32"
-    font-weight="600"
+    font-family="'DM Serif Display', 'Georgia', serif"
+    font-size="30"
+    font-weight="400"
     letter-spacing="2"
     fill="#D4AAFF">M&amp;Ai</text>
 </svg>
