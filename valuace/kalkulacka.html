@@ -11,10 +11,19 @@
 <link rel="icon" href="../logo/mnai-logo-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../css/style.css">
 <style>
-  /* Override body to prevent scroll issues with iframe */
   body { overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
 
-  /* Iframe section */
+  /* Make nav sticky instead of fixed so it doesn't overlap iframe */
+  nav#nav, nav#nav.scrolled {
+    position: sticky;
+    padding: 12px 64px;
+    background: rgba(13,11,26,0.95);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(155,89,212,0.15);
+    flex-shrink: 0;
+  }
+
+  /* Iframe fills remaining space */
   .calc-iframe-section {
     flex: 1;
     position: relative;
@@ -30,12 +39,9 @@
     width: 100%;
   }
 
-  /* Hide footer and hero scroll on this page */
+  /* Hide starfield on calculator page for cleaner look */
+  #starfield { display: none; }
   footer { display: none; }
-
-  /* Adjust nav for app-like feel */
-  nav#nav { padding: 16px 64px; }
-  nav#nav.scrolled { padding: 12px 64px; }
 
   @media (max-width: 900px) {
     nav#nav, nav#nav.scrolled { padding: 12px 24px; }
