@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valuace e-shopu — M&Ai</title>
+<meta name="description" content="Online valuační kalkulačka pro e-commerce podniky. AI analýza finančních dat, KPI a kvalitativních faktorů.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/logo/mnai-logo-icon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --purple-deep: #0D0B1A;
+    --purple-dark: #120F24;
+    --purple-glow: #6B3FA0;
+    --purple-bright: #9B59D4;
+    --purple-light: #C89EF5;
+    --star-white: #F4F0FF;
+    --text-dim: rgba(210,195,255,0.78);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--purple-deep);
+    color: var(--star-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top bar */
+  .valuace-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: rgba(13,11,26,0.92);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(155,89,212,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .valuace-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--star-white);
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+  }
+  .valuace-nav-logo svg {
+    width: 32px;
+    height: 32px;
+  }
+  .valuace-nav-back {
+    color: var(--purple-light);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .valuace-nav-back:hover { color: var(--star-white); }
+
+  /* Iframe container */
+  .valuace-iframe-wrap {
+    flex: 1;
+    display: flex;
+  }
+  .valuace-iframe-wrap iframe {
+    flex: 1;
+    border: none;
+    background: var(--purple-deep);
+  }
+
+  @media (max-width: 640px) {
+    .valuace-nav { padding: 12px 16px; }
+    .valuace-nav-logo { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="valuace-nav">
+  <a href="/" class="valuace-nav-logo">
+    <span>M&amp;Ai</span>
+  </a>
+  <a href="/" class="valuace-nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Zpět na web
+  </a>
+</div>
+
+<div class="valuace-iframe-wrap">
+  <iframe
+    src="https://ecommerce-valuator-production.up.railway.app"
+    title="E-commerce valuační kalkulačka"
+    allow="clipboard-write"
+  ></iframe>
+</div>
+
+</body>
+</html>
