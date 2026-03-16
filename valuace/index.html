@@ -3,109 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valuace e-shopu — M&Ai</title>
-<meta name="description" content="Online valuační kalkulačka pro e-commerce podniky. AI analýza finančních dat, KPI a kvalitativních faktorů.">
+<title>Valuace společnosti — M&Ai | Zjistěte hodnotu vašeho e-shopu</title>
+<meta name="description" content="Online valuační kalkulačka pro e-commerce podniky. AI analýza finančních dat, KPI a kvalitativních faktorů. Výsledek do 5 minut.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="/logo/mnai-logo-icon.svg" type="image/svg+xml">
-<style>
-  :root {
-    --purple-deep: #0D0B1A;
-    --purple-dark: #120F24;
-    --purple-glow: #6B3FA0;
-    --purple-bright: #9B59D4;
-    --purple-light: #C89EF5;
-    --star-white: #F4F0FF;
-    --text-dim: rgba(210,195,255,0.78);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--purple-deep);
-    color: var(--star-white);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Top bar */
-  .valuace-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 32px;
-    background: rgba(13,11,26,0.92);
-    backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(155,89,212,0.15);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .valuace-nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--star-white);
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    letter-spacing: 0.08em;
-  }
-  .valuace-nav-logo svg {
-    width: 32px;
-    height: 32px;
-  }
-  .valuace-nav-back {
-    color: var(--purple-light);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .valuace-nav-back:hover { color: var(--star-white); }
-
-  /* Iframe container */
-  .valuace-iframe-wrap {
-    flex: 1;
-    display: flex;
-  }
-  .valuace-iframe-wrap iframe {
-    flex: 1;
-    border: none;
-    background: var(--purple-deep);
-  }
-
-  @media (max-width: 640px) {
-    .valuace-nav { padding: 12px 16px; }
-    .valuace-nav-logo { font-size: 18px; }
-  }
-</style>
+<link rel="icon" href="../logo/mnai-logo-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<div class="valuace-nav">
-  <a href="/" class="valuace-nav-logo">
-    <span>M&amp;Ai</span>
-  </a>
-  <a href="/" class="valuace-nav-back">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-    Zpět na web
-  </a>
+<!-- STARFIELD -->
+<canvas id="starfield"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../" class="nav-logo"><svg class="logo-cube-3d" width="40" height="40" viewBox="0 0 50 50"></svg><span class="logo-text">M&amp;Ai</span></a>
+  <ul class="nav-links">
+    <li><a href="../#o-nas">O nás</a></li>
+    <li><a href="../#sluzby">Služby</a></li>
+    <li><a href="./" style="color:var(--purple-light);">Valuace</a></li>
+    <li><a href="../#blog">Blog</a></li>
+    <li><a href="../#tym">Tým</a></li>
+    <li><a href="../#faq">FAQ</a></li>
+    <li><a href="../#kontakt" class="nav-cta">Konzultace</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="theme-toggle" id="themeToggle" aria-label="Přepnout světlý/tmavý režim" title="Světlý/tmavý režim">
+      <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <div class="lang-group">
+      <a href="../en/" class="lang-toggle" title="English version">EN</a>
+      <a href="../de/" class="lang-toggle" title="Deutsche Version">DE</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="min-height:85vh;">
+  <div class="nebula-hero"></div>
+  <div class="orbit-ring ring-1"></div>
+  <div class="orbit-ring ring-2"></div>
+
+  <div class="hero-content" style="max-width:720px;">
+    <div class="hero-eyebrow">Valuační kalkulačka</div>
+    <h1 class="hero-title">
+      Kolik stojí<br>váš <em>e-shop?</em>
+    </h1>
+    <p class="hero-subtitle">AI-powered kalkulačka, která analyzuje vaše finanční data, KPI a kvalitativní faktory. Výsledek do 5 minut.</p>
+    <div class="hero-actions">
+      <a href="kalkulacka.html" class="btn-primary">Spustit kalkulačku</a>
+      <a href="#jak-to-funguje" class="btn-secondary">Jak to funguje</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scrollovat dolů
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="services-wrap" id="jak-to-funguje">
+  <div class="services-header reveal">
+    <div class="section-label">Jak to funguje</div>
+    <h2 class="section-title">Tři kroky<br>k <em>valuaci</em></h2>
+  </div>
+
+  <div class="services-grid reveal" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="service-card">
+      <div class="service-glow"></div>
+      <div class="service-num">01</div>
+      <div class="service-icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="8" y="6" width="20" height="28" rx="2" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="12" y1="14" x2="24" y2="14" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="12" y1="20" x2="24" y2="20" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="12" y1="26" x2="20" y2="26" stroke="#9B59D4" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <h3 class="service-title">Zadejte data</h3>
+      <p class="service-text">Vyplňte základní finanční metriky vašeho e-shopu — tržby, marži, náklady a provozní KPI. Zabere to pár minut.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-glow"></div>
+      <div class="service-num">02</div>
+      <div class="service-icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="14" stroke="#9B59D4" stroke-width="1.2"/>
+          <path d="M14 22h6l3-8 4 16 3-8h6" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <h3 class="service-title">AI analýza</h3>
+      <p class="service-text">Náš algoritmus vyhodnotí vaše data, porovná je s databází transakcí a aplikuje vícero oceňovacích metod včetně kvalitativních faktorů.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-glow"></div>
+      <div class="service-num">03</div>
+      <div class="service-icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <polyline points="8,32 18,20 24,26 36,10" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
+          <circle cx="36" cy="10" r="3" stroke="#9B59D4" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <h3 class="service-title">Výsledek</h3>
+      <p class="service-text">Obdržíte orientační rozpětí hodnoty vašeho e-shopu s rozpisem klíčových faktorů, které cenu ovlivňují.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="intro" id="co-ziskate">
+  <div class="intro-inner reveal">
+    <div>
+      <div class="section-label">Co získáte</div>
+      <p class="tagline">"Znát hodnotu<br>své firmy<br>je základ."</p>
+    </div>
+    <div class="intro-text">
+      <p>Kalkulačka vám poskytne orientační odhad hodnoty vašeho e-commerce podnikání. Nejedná se o závazné ocenění, ale o data-driven výchozí bod pro vaše rozhodování.</p>
+      <p>Výsledek můžete použít jako podklad pro jednání s investorem, interní strategické plánování, nebo jako první krok před profesionální valuací od našeho týmu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<div class="services-wrap" id="co-dal">
+  <div class="services-header reveal">
+    <div class="section-label">Co se bude dít dál</div>
+    <h2 class="section-title">Po výpočtu<br><em>nezůstanete sami</em></h2>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-glow"></div>
+      <div class="service-num">01</div>
+      <div class="service-icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="6" y="6" width="32" height="32" rx="3" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="6" y1="16" x2="38" y2="16" stroke="#9B59D4" stroke-width="1.2"/>
+          <polyline points="14,24 18,30 28,20" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <h3 class="service-title">Orientační odhad</h3>
+      <p class="service-text">Ihned po vyplnění získáte cenové rozpětí a přehled klíčových faktorů. Výpočet probíhá v prohlížeči — vaše data nikam neodesíláme.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-glow"></div>
+      <div class="service-num">02</div>
+      <div class="service-icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="16" cy="16" r="8" stroke="#9B59D4" stroke-width="1.2"/>
+          <circle cx="28" cy="28" r="8" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="22" y1="22" x2="22" y2="22" stroke="#9B59D4" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <h3 class="service-title">Konzultace s expertem</h3>
+      <p class="service-text">Chcete výsledek probrat? Nabízíme bezplatnou 30minutovou konzultaci, kde vám vysvětlíme, co čísla znamenají a jaké jsou vaše možnosti.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-glow"></div>
+      <div class="service-num">03</div>
+      <div class="service-icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="8" y="8" width="28" height="28" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="8" y1="22" x2="36" y2="22" stroke="#9B59D4" stroke-width="1.2"/>
+          <line x1="22" y1="8" x2="22" y2="36" stroke="#9B59D4" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <h3 class="service-title">Profesionální valuace</h3>
+      <p class="service-text">Pro závazné ocenění připravíme detailní valuační report s DCF modelem, tržním srovnáním a doporučeními — ideální podklad pro jednání s kupcem.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-glow"></div>
+      <div class="service-num">04</div>
+      <div class="service-icon-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="14" stroke="#9B59D4" stroke-width="1.2"/>
+          <polyline points="16,22 22,15 28,22" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
+          <line x1="22" y1="15" x2="22" y2="31" stroke="#9B59D4" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <h3 class="service-title">Prodej s M&Ai</h3>
+      <p class="service-text">Pokud se rozhodnete prodávat, provedeme vás celým procesem — od přípravy firmy, přes vyhledání kupce, až po uzavření transakce.</p>
+    </div>
+  </div>
 </div>
 
-<div class="valuace-iframe-wrap">
-  <iframe
-    src="https://ecommerce-valuator-production.up.railway.app"
-    title="E-commerce valuační kalkulačka"
-    allow="clipboard-write"
-  ></iframe>
-</div>
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="reveal">
+      <div class="section-label">Časté otázky</div>
+      <h2 class="section-title" style="margin-bottom:56px;">Vše o<br><em>kalkulačce</em></h2>
+    </div>
 
+    <div class="faq-item reveal">
+      <div class="faq-q">Jak přesná je online kalkulačka?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Kalkulačka poskytuje orientační odhad na základě zjednodušeného modelu. Pro závazné ocenění doporučujeme profesionální valuaci, která zohledňuje detailní finanční analýzu a specifika vašeho podnikání.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Jsou moje data v bezpečí?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Ano. Výpočet probíhá přímo ve vašem prohlížeči. Nepožadujeme registraci ani žádné osobní údaje.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Pro koho je kalkulačka určena?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Primárně pro majitele e-commerce podniků, kteří zvažují prodej, vstup investora, nebo chtějí znát aktuální tržní hodnotu svého byznysu.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Co když chci přesnější ocenění?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Nabízíme profesionální valuační report, který zahrnuje detailní DCF model, tržní komparativní analýzu a osobní konzultaci s analytikem. Kontaktujte nás pro více informací.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Kolik stojí profesionální valuace?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Cena se odvíjí od velikosti a složitosti podniku. Rádi vám připravíme nabídku na míru — stačí nás kontaktovat po dokončení kalkulačky nebo rovnou na info@mnai.cz.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="contact-section">
+  <div class="contact-nebula"></div>
+  <div class="contact-inner reveal">
+    <div class="section-label" style="justify-content:center;">Připraveni?</div>
+    <h2 class="contact-big">
+      Zjistěte hodnotu<br>
+      <em>svého e-shopu</em>
+    </h2>
+    <p style="font-size:15px; color:var(--text-dim); line-height:1.85; margin-bottom:44px;">Stačí pár minut a budete vědět, kolik váš byznys stojí. Žádná registrace, žádné závazky.</p>
+    <a href="kalkulacka.html" class="btn-primary">Spustit kalkulačku</a>
+    <div class="contact-info" style="margin-top:40px;">
+      <div class="contact-item"><a href="mailto:info@mnai.cz">Raději rovnou konzultace? Napište nám.</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="../logo/mnai-logo-horizontal.svg" alt="M&Ai" height="32"></div>
+  <nav class="footer-links">
+    <a href="../#o-nas">O nás</a>
+    <a href="../#sluzby">Služby</a>
+    <a href="./">Valuace</a>
+    <a href="../#kontakt">Kontakt</a>
+  </nav>
+  <p class="footer-copy">&copy; 2026 M&Ai — Varenská 2723/51, Ostrava</p>
+</footer>
+
+<script src="../js/main.js"></script>
 </body>
 </html>
