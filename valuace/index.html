@@ -3,13 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valuace společnosti — M&Ai | Zjistěte hodnotu vašeho e-shopu</title>
-<meta name="description" content="Online valuační kalkulačka pro e-commerce podniky. AI analýza finančních dat, KPI a kvalitativních faktorů. Výsledek do 5 minut.">
+<title>Valuace &amp; Audit e-shopu — M&Ai | Zjistěte hodnotu svého podnikání</title>
+<meta name="description" content="Online valuační kalkulačka a audit pro e-commerce podniky. AI analýza finančních dat, KPI a kvalitativních faktorů. Základní odhad zdarma.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="../logo/mnai-logo-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+/* Pricing cards */
+.val-pricing { padding: 120px 64px; background: var(--purple-deep); position: relative; z-index: 1; }
+.val-pricing::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(107,63,160,0.07) 0%, transparent 70%); pointer-events:none; }
+.val-pricing-inner { max-width: 1180px; margin: 0 auto; }
+.val-pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(155,89,212,0.1); margin-top: 56px; }
+.val-price-card { background: var(--purple-dark); padding: 40px 28px; position: relative; transition: background 0.3s; display: flex; flex-direction: column; }
+.val-price-card:hover { background: var(--purple-mid); }
+.val-price-card.featured { border-top: 2px solid var(--purple-bright); }
+.val-price-badge { position:absolute; top:0; left:50%; transform:translate(-50%,-50%); background: linear-gradient(135deg, var(--purple-glow), var(--nebula-pink)); color:#fff; font-size:9px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; padding:4px 14px; white-space:nowrap; }
+.val-price-tier { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--purple-light); margin-bottom:14px; }
+.val-price-amount { font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; color:var(--star-white); margin-bottom:6px; }
+.val-price-amount small { font-size:16px; color:var(--text-dim); font-family:'Inter',sans-serif; font-weight:300; }
+.val-price-desc { font-size:13px; color:var(--text-dim); margin-bottom:24px; line-height:1.6; }
+.val-price-features { list-style:none; margin-bottom:28px; flex:1; }
+.val-price-features li { font-size:12px; color:var(--text-dim); padding:7px 0; padding-left:18px; position:relative; line-height:1.5; }
+.val-price-features li::before { content:'\2713'; position:absolute; left:0; color:var(--purple-bright); font-size:11px; }
+.val-price-features li.highlight { color: var(--star-white); font-weight: 400; }
+.val-price-btn { display:block; text-align:center; padding:13px 20px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; color:var(--purple-light); border:1px solid rgba(155,89,212,0.35); transition:all 0.3s; }
+.val-price-btn:hover { background:rgba(155,89,212,0.1); border-color:var(--purple-bright); color:var(--star-white); }
+.val-price-btn.primary { background:linear-gradient(135deg, var(--purple-glow), var(--nebula-pink) 150%); border:none; color:#fff; box-shadow:0 0 20px rgba(107,63,160,0.3); }
+.val-price-btn.primary:hover { box-shadow:0 0 40px rgba(107,63,160,0.5); }
+.val-price-save { text-align:center; margin-top:10px; font-size:11px; color:var(--nebula-pink); font-weight:500; }
+
+@media (max-width: 900px) {
+  .val-pricing { padding: 80px 24px; }
+  .val-pricing-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
@@ -55,15 +84,15 @@
   <div class="orbit-ring ring-1"></div>
   <div class="orbit-ring ring-2"></div>
 
-  <div class="hero-content" style="max-width:720px; padding-right:20px;">
-    <div class="hero-eyebrow">Valuační kalkulačka</div>
+  <div class="hero-content" style="max-width:760px; padding-right:20px;">
+    <div class="hero-eyebrow">Valuace &amp; Audit e-shopu</div>
     <h1 class="hero-title">
       Kolik stojí<br>váš <em>e-shop</em>?
     </h1>
-    <p class="hero-subtitle">AI-powered kalkulačka, která analyzuje vaše finanční data, KPI a kvalitativní faktory. Výsledek do 5 minut.</p>
+    <p class="hero-subtitle">AI kalkulačka, která ocení váš e-shop a odhalí, kde necháváte peníze na stole. Základní odhad zdarma, detailní analýza na klik.</p>
     <div class="hero-actions">
       <a href="kalkulacka.html" class="btn-primary">Spustit kalkulačku</a>
-      <a href="#jak-to-funguje" class="btn-secondary">Jak to funguje</a>
+      <a href="#ceniky" class="btn-secondary">Zobrazit plány</a>
     </div>
   </div>
 
@@ -77,7 +106,7 @@
 <section class="services-wrap" id="jak-to-funguje">
   <div class="services-header reveal">
     <div class="section-label">Jak to funguje</div>
-    <h2 class="section-title">Tři kroky<br>k <em>valuaci</em></h2>
+    <h2 class="section-title">Tři kroky<br>k <em>výsledku</em></h2>
   </div>
 
   <div class="services-grid reveal" style="grid-template-columns: repeat(3, 1fr);">
@@ -93,7 +122,7 @@
         </svg>
       </div>
       <h3 class="service-title">Zadejte data</h3>
-      <p class="service-text">Vyplňte základní finanční metriky vašeho e-shopu — tržby, marži, náklady a provozní KPI. Zabere to pár minut.</p>
+      <p class="service-text">Vyplňte finanční metriky vašeho e-shopu — tržby, marži, náklady a provozní KPI. Zabere to pár minut.</p>
     </div>
 
     <div class="service-card">
@@ -106,7 +135,7 @@
         </svg>
       </div>
       <h3 class="service-title">AI analýza</h3>
-      <p class="service-text">Náš algoritmus vyhodnotí vaše data, porovná je s databází transakcí a aplikuje vícero oceňovacích metod včetně kvalitativních faktorů.</p>
+      <p class="service-text">Algoritmus vyhodnotí data, porovná je s databází transakcí a aplikuje oceňovací metody. Podle zvoleného plánu získáte valuaci, audit, nebo obojí.</p>
     </div>
 
     <div class="service-card">
@@ -119,21 +148,101 @@
         </svg>
       </div>
       <h3 class="service-title">Výsledek</h3>
-      <p class="service-text">Obdržíte orientační rozpětí hodnoty vašeho e-shopu s rozpisem klíčových faktorů, které cenu ovlivňují.</p>
+      <p class="service-text">Obdržíte cenové rozpětí, AI-generovaný expertní report, analýzu rizik a konkrétní doporučení — podle zvoleného plánu.</p>
     </div>
   </div>
 </section>
 
-<!-- WHAT YOU GET -->
+<!-- WHAT YOU GET — two columns: valuation vs audit -->
 <section class="intro" id="co-ziskate">
   <div class="intro-inner reveal">
     <div>
-      <div class="section-label">Co získáte</div>
-      <p class="tagline">"Znát hodnotu<br>své firmy<br>je základ."</p>
+      <div class="section-label">Dva produkty v jedné kalkulačce</div>
+      <p class="tagline">Valuace odpoví<br><em>"kolik to stojí"</em>,<br>audit ukáže<br><em>"kde ztrácíte"</em>.</p>
     </div>
     <div class="intro-text">
-      <p>Kalkulačka vám poskytne orientační odhad hodnoty vašeho e-commerce podnikání. Nejedná se o závazné ocenění, ale o data-driven výchozí bod pro vaše rozhodování.</p>
-      <p>Výsledek můžete použít jako podklad pro jednání s investorem, interní strategické plánování, nebo jako první krok před profesionální valuací od našeho týmu.</p>
+      <p><strong style="color:var(--star-white);">Valuace</strong> — zjistěte tržní hodnotu svého e-shopu. Získáte cenové rozpětí, analýzu 8 kvalitativních dimenzí, rizikové faktory, růstové scénáře a investorský pohled s Exit Readiness Score.</p>
+      <p><strong style="color:var(--star-white);">Audit</strong> — odhalte, kde váš e-shop ztrácí peníze. 6 modulů analyzuje ziskovost, marketing, retenci, sklady, ceny a provoz. Výstupem jsou prioritní akce seřazené podle dopadu v korunách.</p>
+      <p>Stejný wizard, stejná data — vy si zvolíte, co potřebujete. Nebo obojí se slevou.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="val-pricing" id="ceniky">
+  <div class="val-pricing-inner">
+    <div class="reveal">
+      <div class="section-label">Cenové plány</div>
+      <h2 class="section-title">Vyberte si<br><em>úroveň analýzy</em></h2>
+    </div>
+
+    <div class="val-pricing-grid reveal">
+
+      <!-- FREE -->
+      <div class="val-price-card">
+        <div class="val-price-tier">Free</div>
+        <div class="val-price-amount">Zdarma</div>
+        <p class="val-price-desc">Orientační odhad hodnoty vašeho e-shopu</p>
+        <ul class="val-price-features">
+          <li>Hlavní valuační číslo s rozpětím</li>
+          <li>3 klíčové insighty (slabina, příležitost, riziko)</li>
+          <li>6 základních metrik (EBITDA, marže, růst, RRS)</li>
+          <li>Vysvětlení metodologie</li>
+        </ul>
+        <a href="kalkulacka.html" class="val-price-btn">Spustit zdarma</a>
+      </div>
+
+      <!-- PRO VALUACE -->
+      <div class="val-price-card">
+        <div class="val-price-tier">Pro Valuace</div>
+        <div class="val-price-amount">4 990 <small>Kč</small></div>
+        <p class="val-price-desc">Kompletní ocenění s AI expertním reportem</p>
+        <ul class="val-price-features">
+          <li class="highlight">Vše z Free +</li>
+          <li>Finanční zdraví (ROA, ROE, ROS vs. benchmark)</li>
+          <li>Business Quality Score — 8 dimenzí</li>
+          <li>Rizikové faktory s dopadem na cenu</li>
+          <li>Růstové scénáře a projekce</li>
+          <li>AI expertní report s investorským pohledem</li>
+          <li>Exit Readiness Score</li>
+          <li>Doporučení pro zvýšení hodnoty</li>
+        </ul>
+        <a href="kalkulacka.html" class="val-price-btn primary">Spustit kalkulačku</a>
+      </div>
+
+      <!-- AUDIT -->
+      <div class="val-price-card">
+        <div class="val-price-tier">Konzultantský Audit</div>
+        <div class="val-price-amount">3 490 <small>Kč</small></div>
+        <p class="val-price-desc">Odhalte, kde váš e-shop ztrácí peníze</p>
+        <ul class="val-price-features">
+          <li class="highlight">Vše z Free +</li>
+          <li>Analýza ušlého zisku (Kč/rok)</li>
+          <li>6 audit modulů: ziskovost, marketing, retence, sklady, ceny, provoz</li>
+          <li>Benchmark vs. segment e-commerce</li>
+          <li>Problémy a doporučení pro každý modul</li>
+          <li>Prioritní akce seřazené podle dopadu</li>
+          <li>AI expertní report se SWOT analýzou</li>
+        </ul>
+        <a href="kalkulacka.html" class="val-price-btn">Spustit kalkulačku</a>
+      </div>
+
+      <!-- KOMPLET -->
+      <div class="val-price-card featured">
+        <div class="val-price-badge">Nejlepší hodnota</div>
+        <div class="val-price-tier">Komplet</div>
+        <div class="val-price-amount">6 990 <small>Kč</small></div>
+        <p class="val-price-desc">Pro Valuace + Audit v jednom</p>
+        <ul class="val-price-features">
+          <li class="highlight">Vše z Pro Valuace</li>
+          <li class="highlight">Vše z Auditu</li>
+          <li>Kompletní obraz firmy — hodnota i optimalizace</li>
+          <li>Ideální před prodejem nebo vstupem investora</li>
+        </ul>
+        <a href="kalkulacka.html" class="val-price-btn primary">Spustit kalkulačku</a>
+        <div class="val-price-save">Ušetříte 1 490 Kč oproti jednotlivě</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -156,8 +265,8 @@
           <polyline points="14,24 18,30 28,20" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
         </svg>
       </div>
-      <h3 class="service-title">Orientační odhad</h3>
-      <p class="service-text">Ihned po vyplnění získáte cenové rozpětí a přehled klíčových faktorů. Výpočet probíhá v prohlížeči — vaše data nikam neodesíláme.</p>
+      <h3 class="service-title">Okamžitý výsledek</h3>
+      <p class="service-text">Ihned po vyplnění získáte orientační odhad zdarma. Placené plány odemknete jedním klikem — výsledek se rozšíří o detailní analýzu.</p>
     </div>
 
     <div class="service-card">
@@ -167,11 +276,10 @@
         <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
           <circle cx="16" cy="16" r="8" stroke="#9B59D4" stroke-width="1.2"/>
           <circle cx="28" cy="28" r="8" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="22" y1="22" x2="22" y2="22" stroke="#9B59D4" stroke-width="1.2"/>
         </svg>
       </div>
       <h3 class="service-title">Konzultace s expertem</h3>
-      <p class="service-text">Chcete výsledek probrat? Nabízíme bezplatnou 30minutovou konzultaci, kde vám vysvětlíme, co čísla znamenají a jaké jsou vaše možnosti.</p>
+      <p class="service-text">Chcete výsledek probrat? Nabízíme konzultaci, kde vám vysvětlíme, co čísla znamenají a jaké jsou vaše možnosti.</p>
     </div>
 
     <div class="service-card">
@@ -185,7 +293,7 @@
         </svg>
       </div>
       <h3 class="service-title">Profesionální valuace</h3>
-      <p class="service-text">Pro závazné ocenění připravíme detailní valuační report s DCF modelem, tržním srovnáním a doporučeními — ideální podklad pro jednání s kupcem.</p>
+      <p class="service-text">Potřebujete závazné ocenění? Náš tým připraví detailní valuační report na míru — ideální podklad pro jednání s kupcem či investorem.</p>
     </div>
 
     <div class="service-card">
@@ -198,7 +306,7 @@
           <line x1="22" y1="15" x2="22" y2="31" stroke="#9B59D4" stroke-width="1.2"/>
         </svg>
       </div>
-      <h3 class="service-title">Prodej s M&Ai</h3>
+      <h3 class="service-title">Prodej s M&amp;Ai</h3>
       <p class="service-text">Pokud se rozhodnete prodávat, provedeme vás celým procesem — od přípravy firmy, přes vyhledání kupce, až po uzavření transakce.</p>
     </div>
   </div>
@@ -213,28 +321,33 @@
     </div>
 
     <div class="faq-item reveal">
-      <div class="faq-q">Jak přesná je online kalkulačka?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Kalkulačka poskytuje orientační odhad na základě zjednodušeného modelu. Pro závazné ocenění doporučujeme profesionální valuaci, která zohledňuje detailní finanční analýzu a specifika vašeho podnikání.</div>
+      <div class="faq-q">Jaký je rozdíl mezi valuací a auditem?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Valuace odpovídá na otázku "kolik můj e-shop stojí" — dostanete cenové rozpětí, analýzu kvality byznysu a investorský pohled. Audit odpovídá na otázku "kde ztrácím peníze" — analyzuje 6 oblastí vašeho podnikání a ukáže konkrétní kroky ke zlepšení s vyčísleným dopadem v korunách.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Co přesně dostanu zdarma?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Orientační odhad hodnoty e-shopu s rozpětím, 3 klíčové insighty (největší slabina, příležitost a riziko) a 6 základních metrik včetně EBITDA, marží a růstu. Pro detailnější analýzu si můžete odemknout placený plán.</div>
     </div>
 
     <div class="faq-item reveal">
       <div class="faq-q">Jsou moje data v bezpečí?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Ano. Výpočet probíhá přímo ve vašem prohlížeči. Nepožadujeme registraci ani žádné osobní údaje.</div>
+      <div class="faq-a">Ano. Nepožadujeme registraci ani osobní údaje. Vaše finanční data zpracováváme výhradně pro účely výpočtu.</div>
     </div>
 
     <div class="faq-item reveal">
       <div class="faq-q">Pro koho je kalkulačka určena?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Primárně pro majitele e-commerce podniků, kteří zvažují prodej, vstup investora, nebo chtějí znát aktuální tržní hodnotu svého byznysu.</div>
+      <div class="faq-a">Pro majitele e-commerce podniků, kteří zvažují prodej, vstup investora, chtějí optimalizovat byznys, nebo prostě chtějí znát aktuální tržní hodnotu svého e-shopu.</div>
     </div>
 
     <div class="faq-item reveal">
-      <div class="faq-q">Co když chci přesnější ocenění?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Nabízíme profesionální valuační report, který zahrnuje detailní DCF model, tržní komparativní analýzu a osobní konzultaci s analytikem. Kontaktujte nás pro více informací.</div>
+      <div class="faq-q">Můžu si plán upgradovat později?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Ano. Můžete začít s Free verzí a kdykoliv po zobrazení výsledků odemknout Pro Valuaci, Audit nebo Komplet. Data nemusíte zadávat znovu.</div>
     </div>
 
     <div class="faq-item reveal">
-      <div class="faq-q">Kolik stojí profesionální valuace?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Cena se odvíjí od velikosti a složitosti podniku. Rádi vám připravíme nabídku na míru — stačí nás kontaktovat po dokončení kalkulačky nebo rovnou na info@mnai.cz.</div>
+      <div class="faq-q">Potřebuji pak ještě profesionální valuaci?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Kalkulačka poskytuje kvalitní orientační odhad. Pokud plánujete reálný prodej nebo vstup investora a potřebujete závazné ocenění, doporučujeme navázat profesionální valuací od našeho týmu — kalkulačka je ideální první krok.</div>
     </div>
   </div>
 </section>
@@ -248,7 +361,7 @@
       Zjistěte hodnotu<br>
       <em>svého e-shopu</em>
     </h2>
-    <p style="font-size:15px; color:var(--text-dim); line-height:1.85; margin-bottom:44px;">Stačí pár minut a budete vědět, kolik váš byznys stojí. Žádná registrace, žádné závazky.</p>
+    <p style="font-size:15px; color:var(--text-dim); line-height:1.85; margin-bottom:44px;">Začněte zdarma. Pár minut a budete vědět, kolik váš byznys stojí — a kde ho můžete zlepšit.</p>
     <a href="kalkulacka.html" class="btn-primary">Spustit kalkulačku</a>
     <div class="contact-info" style="margin-top:40px;">
       <div class="contact-item"><a href="mailto:info@mnai.cz">Raději rovnou konzultace? Napište nám.</a></div>
