@@ -96,5 +96,15 @@
 </div>
 
 <script src="../js/main.js"></script>
+<script>
+  // Send current theme to iframe once it loads
+  var calcIframe = document.querySelector('.calc-iframe-section iframe');
+  if (calcIframe) {
+    calcIframe.addEventListener('load', function() {
+      var theme = localStorage.getItem('theme') || 'dark';
+      calcIframe.contentWindow.postMessage({ type: 'theme-change', theme: theme }, '*');
+    });
+  }
+</script>
 </body>
 </html>
