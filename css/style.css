@@ -313,8 +313,9 @@ nav#nav.scrolled {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
-  padding-bottom: 0.18em;
-  margin-bottom: -0.18em;
+  line-height: 1;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.3em;
 }
 
 .hero-subtitle {
@@ -486,8 +487,9 @@ nav#nav.scrolled {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
-  padding-bottom: 0.18em;
-  margin-bottom: -0.18em;
+  line-height: 1;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.3em;
 }
 
 /* ===================== SERVICES ===================== */
@@ -905,8 +907,9 @@ nav#nav.scrolled {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  padding-bottom: 0.18em;
-  margin-bottom: -0.18em;
+  line-height: 1;
+  padding-bottom: 0.35em;
+  margin-bottom: -0.3em;
 }
 
 .contact-info {
