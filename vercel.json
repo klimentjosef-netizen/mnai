@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/portal", "destination": "https://ecommerce-valuator-production.up.railway.app/" },
+    { "source": "/portal/:path*", "destination": "https://ecommerce-valuator-production.up.railway.app/:path*" },
+    { "source": "/api/:path*", "destination": "https://ecommerce-valuator-production.up.railway.app/api/:path*" },
+    { "source": "/static/:path*", "destination": "https://ecommerce-valuator-production.up.railway.app/static/:path*" }
+  ]
+}
