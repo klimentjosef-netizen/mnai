@@ -175,11 +175,14 @@ nav#nav.scrolled {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   transition: color 0.3s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover { color: var(--purple-light); }
 
 .nav-cta {
+  display: inline-block;
+  white-space: nowrap;
   background: linear-gradient(135deg, var(--purple-glow), var(--nebula-pink) 150%) !important;
   border: none !important;
   color: #fff !important;
@@ -976,6 +979,21 @@ footer {
 .reveal.visible { opacity: 1; transform: none; }
 
 /* ===================== RESPONSIVE ===================== */
+/* Mezipásmo: odkazy se ještě zobrazují, ale na 40px mezery už místo není. */
+@media (max-width: 1250px) {
+  .nav-links { gap: 22px; }
+  .nav-links a { letter-spacing: 0.14em; }
+  .nav-cta { padding: 9px 16px !important; }
+}
+
+@media (max-width: 1060px) {
+  .nav-links { gap: 14px; margin-left: 18px; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
+  .nav-cta { padding: 8px 12px !important; }
+  .logo-text { font-size: 18px; letter-spacing: 0.12em; }
+  .nav-controls { margin-left: 14px; }
+}
+
 @media (max-width: 900px) {
   nav#nav, .hero, .intro, .services-wrap, .team-section, .blog-section, .faq-section, .contact-section, footer {
     padding-left: 24px;
