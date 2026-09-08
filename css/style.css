@@ -1,36 +1,40 @@
 :root {
-  --purple-deep:    #0D0B1A;
-  --purple-dark:    #120F24;
-  --purple-mid:     #1E1640;
+  /* Paleta odměřená ze Skinners_Oceneni_MAi_v3, titulní strana zprávy. */
+  --purple-deep:    #17112F;
+  --purple-dark:    #1D163F;
+  --purple-mid:     #2A2154;
   --purple-glow:    #6B3FA0;
-  --purple-bright:  #9B59D4;
+  --purple-bright:  #8478A8;
   --purple-light:   #C89EF5;
   --nebula-pink:    #FFE8A8;
   --nebula-blue:    #4B8EF5;
   --star-white:     #F4F0FF;
-  --text-dim:       rgba(210,195,255,0.78);
-  --gold:           #FFE8A8;
-  --gold-light:     #FFF1C2;
+  --text-dim:       rgba(244,240,255,0.72);
+  --gold:           #C8A13A;
+  --gold-light:     #FFE8A8;
   --gold-bright:    #FFE8A8;
-  --gold-glow:      rgba(255,232,168,0.55);
+  --gold-glow:      rgba(200,161,58,0.45);
+  --serif:          'Source Serif 4', Georgia, serif;
+  --serif-text:     'Newsreader', Georgia, serif;
 }
 
 /* ===================== LIGHT THEME ===================== */
 [data-theme="light"] {
-  --purple-deep:    #F5F3FA;
-  --purple-dark:    #EDE9F5;
-  --purple-mid:     #E0D9EE;
-  --purple-glow:    #7B4DB5;
-  --purple-bright:  #9B59D4;
-  --purple-light:   #6B3FA0;
-  --nebula-pink:    #C9A23A;
+  /* Paleta vnitřních stran zprávy. */
+  --purple-deep:    #F4F2F9;
+  --purple-dark:    #E9E4F2;
+  --purple-mid:     #D8CFE8;
+  --purple-glow:    #6B3FA0;
+  --purple-bright:  #8478A8;
+  --purple-light:   #746E8A;
+  --nebula-pink:    #B8932D;
   --nebula-blue:    #3A7DE0;
   --star-white:     #1A1528;
-  --text-dim:       rgba(30,22,64,0.78);
-  --gold:           #B8932E;
-  --gold-light:     #C9A23A;
-  --gold-bright:    #D9B548;
-  --gold-glow:      rgba(184,147,46,0.4);
+  --text-dim:       #746E8A;
+  --gold:           #B8932D;
+  --gold-light:     #C8A13A;
+  --gold-bright:    #C8A13A;
+  --gold-glow:      rgba(184,147,45,0.35);
 }
 
 [data-theme="light"] #starfield { opacity: 0.08; }
@@ -157,7 +161,8 @@ nav#nav.scrolled {
 }
 
 .logo-text {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 22px;
   font-weight: 400;
   color: var(--gold);
@@ -300,7 +305,8 @@ nav#nav.scrolled {
 }
 
 .hero-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: clamp(54px, 7.5vw, 100px);
   font-weight: 400;
   line-height: 0.95;
@@ -310,9 +316,12 @@ nav#nav.scrolled {
 }
 
 .hero-title em {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 900;
+  font-family: var(--serif-text);
+  font-weight: 400;
   font-style: italic;
+  /* Kurzíva přesahuje účaří vpravo, bez odsazení ji ořízne background-clip. */
+  display: inline-block;
+  padding-right: 0.06em;
   background: linear-gradient(135deg, var(--purple-light), var(--nebula-pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -320,7 +329,8 @@ nav#nav.scrolled {
 }
 
 .hero-subtitle {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: clamp(16px, 2vw, 22px);
   font-style: italic;
   font-weight: 400;
@@ -434,7 +444,7 @@ nav#nav.scrolled {
 }
 
 .tagline {
-  font-family: 'Archivo', sans-serif;
+  font-family: var(--serif-text);
   font-size: 34px;
   font-style: italic;
   font-weight: 900;
@@ -473,7 +483,8 @@ nav#nav.scrolled {
 }
 
 .section-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: clamp(34px, 4.5vw, 58px);
   font-weight: 400;
   line-height: 1.08;
@@ -482,7 +493,7 @@ nav#nav.scrolled {
 }
 
 .section-title em {
-  font-family: 'Archivo', sans-serif;
+  font-family: var(--serif-text);
   font-weight: 900;
   font-style: italic;
   background: linear-gradient(135deg, var(--purple-light), var(--nebula-pink));
@@ -552,7 +563,8 @@ nav#nav.scrolled {
 .service-card:hover .service-glow { opacity: 1; }
 
 .service-num {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 80px;
   font-weight: 400;
   color: rgba(155,89,212,0.06);
@@ -573,7 +585,8 @@ nav#nav.scrolled {
 .service-icon-wrap svg { opacity: 0.7; }
 
 .service-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 30px;
   font-weight: 400;
   color: var(--star-white);
@@ -625,7 +638,8 @@ nav#nav.scrolled {
 }
 
 .client-name {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 20px;
   font-weight: 400;
   color: rgba(196,180,255,0.4);
@@ -700,7 +714,8 @@ nav#nav.scrolled {
 }
 
 .team-name {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 23px;
   font-weight: 400;
   color: var(--star-white);
@@ -758,7 +773,8 @@ nav#nav.scrolled {
 }
 
 .blog-preview-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 22px;
   font-weight: 400;
   color: var(--star-white);
@@ -820,7 +836,8 @@ nav#nav.scrolled {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 23px;
   font-weight: 400;
   color: var(--star-white);
@@ -891,7 +908,8 @@ nav#nav.scrolled {
 }
 
 .contact-big {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: clamp(44px, 6.5vw, 82px);
   font-weight: 400;
   line-height: 0.98;
@@ -900,7 +918,7 @@ nav#nav.scrolled {
 }
 
 .contact-big em {
-  font-family: 'Archivo', sans-serif;
+  font-family: var(--serif-text);
   font-weight: 900;
   font-style: italic;
   display: block;
@@ -943,7 +961,8 @@ footer {
 }
 
 .footer-logo {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 24px;
   font-weight: 400;
   color: var(--purple-light);

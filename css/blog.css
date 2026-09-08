@@ -58,7 +58,8 @@
 }
 
 .blog-card-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 26px;
   font-weight: 400;
   color: var(--star-white);
@@ -109,7 +110,8 @@
 }
 
 .article-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: clamp(32px, 4.5vw, 52px);
   font-weight: 400;
   line-height: 1.12;
@@ -133,7 +135,8 @@
 }
 
 .article-body h2 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 32px;
   font-weight: 400;
   color: var(--star-white);
@@ -142,7 +145,8 @@
 }
 
 .article-body h3 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 24px;
   font-weight: 400;
   color: var(--purple-light);
@@ -181,7 +185,8 @@
 }
 
 .article-body blockquote p {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 22px;
   font-style: italic;
   color: var(--purple-light);
@@ -218,7 +223,8 @@
 }
 
 .article-cta p {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--serif);
+  font-weight: 600;
   font-size: 26px;
   font-weight: 400;
   color: var(--star-white);
