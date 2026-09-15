@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "crawll.mnai.cz" }],
+      "destination": "https://46.62.232.35.sslip.io/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/portal", "destination": "https://ecommerce-valuator-production.up.railway.app/" },
     { "source": "/portal/:path*", "destination": "https://ecommerce-valuator-production.up.railway.app/:path*" },
