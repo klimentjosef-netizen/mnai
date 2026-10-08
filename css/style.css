@@ -167,7 +167,7 @@ nav#nav.scrolled {
   font-weight: 400;
   color: var(--gold);
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  /* Bez převodu na velká písmena: značka je M&Ai, ne M&AI. */
   text-shadow: 0 0 24px var(--gold-glow);
 }
 
@@ -1031,4 +1031,13 @@ footer {
   .ring-1, .ring-2, .ring-3 { opacity: 0.5; }
   .blog-preview-grid { grid-template-columns: 1fr; }
   .nav-controls { margin-left: 12px; gap: 8px; }
+}
+
+/* Telefon: tlačítka v hero pod sebe, jinak druhé přeteče vpravo. */
+@media (max-width: 600px) {
+  .hero-actions { flex-direction: column; gap: 14px; }
+  .hero-actions a { width: 100%; max-width: 320px; text-align: center; }
+  .hero-subtitle { margin-bottom: 36px; }
+  /* Svislý nápis se u okraje telefonu usekne. */
+  .hero-scroll { display: none; }
 }

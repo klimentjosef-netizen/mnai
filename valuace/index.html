@@ -34,7 +34,11 @@
 .val-price-btn.primary:hover { box-shadow:0 0 40px rgba(107,63,160,0.5); }
 .val-price-save { text-align:center; margin-bottom:10px; font-size:11px; color:var(--nebula-pink); font-weight:500; }
 
+/* Tři kroky. Dřív inline styl, který mobilní pravidlo nepřebilo. */
+.services-grid.tri { grid-template-columns: repeat(3, 1fr); }
+
 @media (max-width: 900px) {
+  .services-grid.tri { grid-template-columns: 1fr; }
   .val-pricing { padding: 80px 24px; }
   .val-pricing-grid { grid-template-columns: 1fr; }
 }
@@ -85,7 +89,7 @@
   <div class="orbit-ring ring-1"></div>
   <div class="orbit-ring ring-2"></div>
 
-  <div class="hero-content" style="max-width:760px; padding-right:20px;">
+  <div class="hero-content" style="max-width:760px;">
     <div class="hero-eyebrow">Valuace &amp; Audit podniku</div>
     <h1 class="hero-title">
       Kolik stojí<br>váš <em>podnik</em>?
@@ -110,7 +114,7 @@
     <h2 class="section-title">Tři kroky<br>k <em>výsledku</em></h2>
   </div>
 
-  <div class="services-grid reveal" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="services-grid tri reveal">
     <div class="service-card">
       <div class="service-glow"></div>
       <div class="service-num">01</div>
