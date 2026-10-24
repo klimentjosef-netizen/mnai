@@ -4,44 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M&Ai | Váš partner při nákupu a prodeji firmy</title>
-<meta name="description" content="M&Ai, experti na fúze a akvizice. Nákup, prodej a valuace firem s využitím AI technologií.">
+<meta name="description" content="M&Ai, experti na fúze a akvizice. Ocenění, příprava na prodej, hledání kupce a vedení transakce až k podpisu.">
+<script>try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="icon" href="logo/mnai-logo-icon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="img/zprava/shrnuti.webp">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- STARFIELD -->
-<canvas id="starfield"></canvas>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo"><svg class="logo-cube-3d" width="40" height="40" viewBox="0 0 50 50"></svg><span class="logo-text">M&amp;Ai</span></a>
+<nav id="nav" aria-label="Hlavní navigace">
+  <a href="#" class="nav-logo"><svg class="logo-cube-3d" width="40" height="40" viewBox="0 0 50 50" aria-hidden="true"></svg><span class="logo-text">M&amp;Ai</span></a>
   <ul class="nav-links">
     <li><a href="#o-nas">O nás</a></li>
     <li><a href="#sluzby">Služby</a></li>
-    <li><a href="#blog">Blog</a></li>
+    <li><a href="valuace/">Ocenění</a></li>
     <li><a href="#tym">Tým</a></li>
-    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
     <li><a href="/portal?login">Přihlásit se</a></li>
-    <li><a href="valuace/" class="nav-cta">Oceňte svůj podnik</a></li>
+    <li><a href="valuace/" class="nav-cta">Ocenit firmu</a></li>
   </ul>
   <div class="nav-controls">
-    <button class="theme-toggle" id="themeToggle" aria-label="Přepnout světlý/tmavý režim" title="Světlý/tmavý režim">
-      <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
+    <button class="theme-toggle" id="themeToggle" aria-label="Přepnout světlý a tmavý režim" title="Světlý a tmavý režim">
+      <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></svg>
     </button>
     <div class="lang-group">
       <a href="en/" class="lang-toggle" title="English version">EN</a>
@@ -50,296 +39,202 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<main>
+
 <section class="hero">
-  <div class="nebula-hero"></div>
-  <div class="orbit-ring ring-1"></div>
-  <div class="orbit-ring ring-2"></div>
-  <div class="orbit-ring ring-3"></div>
-
   <div class="hero-content">
-    <div class="hero-eyebrow">Fúze &amp; Akvizice s využitím AI</div>
-    <h1 class="hero-title">
-      Nákup<br>&amp; <em>Prodej</em><br>firmy.
-    </h1>
-    <p class="hero-subtitle">Váš partner při každém kroku transakce</p>
+    <h1 class="hero-title">Prodej a nákup firem s&nbsp;oporou v&nbsp;<em>číslech</em></h1>
+    <p class="hero-subtitle">Firmu oceníme, připravíme na prodej, najdeme protistranu a povedeme jednání až k podpisu.</p>
     <div class="hero-actions">
-      <a href="#kontakt" class="btn-primary">Zahájit konzultaci</a>
-      <a href="#sluzby" class="btn-secondary">Naše služby</a>
+      <a href="#kontakt" class="btn-primary">Domluvit konzultaci</a>
+      <a href="valuace/" class="btn-secondary">Ocenit firmu</a>
     </div>
   </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Procházet níže
-  </div>
-</section>
-
-<!-- INTRO -->
-<section class="intro" id="o-nas">
-  <div class="intro-inner reveal">
-    <div>
-      <div class="section-label">O M&Ai</div>
-      <p class="tagline">"Spojujeme.<br>Inovujeme.<br>Prosperujeme."</p>
-    </div>
-    <div class="intro-text">
-      <p>Jsme experti na fúze a akvizice s vášní pro propojování správných firem. Naším cílem je najít dokonalou shodu mezi kupujícími a prodávajícími, která přinese oběma stranám maximální hodnotu.</p>
-      <p>Využíváme moderní technologie a hlubokou znalost trhu k analýze dat a identifikaci ideálních partnerů. S osobním přístupem a bohatými zkušenostmi vás provedeme celým procesem M&A.</p>
-    </div>
+  <div class="hero-visual" aria-hidden="true">
+    <img class="vzadu" src="img/zprava/titulka.webp" alt="" width="900" height="1273">
+    <img class="vpredu" src="img/zprava/shrnuti.webp" alt="" width="900" height="713">
   </div>
 </section>
 
-<!-- SERVICES -->
-<div class="services-wrap" id="sluzby">
-  <div class="services-header reveal">
-    <div class="section-label">Poskytované služby</div>
-    <h2 class="section-title">Co pro vás<br><em>dokážeme</em></h2>
-  </div>
-
-  <div class="services-grid reveal">
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">01</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <rect x="8" y="8" width="28" height="28" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="8" y1="22" x2="36" y2="22" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="22" y1="8" x2="22" y2="36" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Nákup</h3>
-      <p class="service-text">S vědomím investiční strategie a add-on preferencí hledáme ideální target a řídíme prvotní fázi jednání. Identifikujeme příležitosti, které ostatní přehlédnou.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">02</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="22" cy="22" r="14" stroke="#9B59D4" stroke-width="1.2"/>
-          <polyline points="16,22 22,15 28,22" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
-          <line x1="22" y1="15" x2="22" y2="31" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Prodej</h3>
-      <p class="service-text">Hledáme kupce, který splňuje představu prodávajícího. Připravujeme a řídíme celý proces prodeje od přípravy dokumentace po uzavření transakce.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">03</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="12" cy="22" r="4" stroke="#9B59D4" stroke-width="1.2"/>
-          <circle cx="32" cy="13" r="4" stroke="#9B59D4" stroke-width="1.2"/>
-          <circle cx="32" cy="31" r="4" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="16" y1="20" x2="28" y2="15" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="16" y1="24" x2="28" y2="29" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Propojení</h3>
-      <p class="service-text">Dostáváme informace k uším a očím těch, kteří je dokáží vyhodnotit. Naše síť kontaktů otevírá dveře, které jsou jinak zavřené.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">04</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <polyline points="8,32 18,20 24,26 36,10" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
-          <circle cx="36" cy="10" r="3" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Valuace</h3>
-      <p class="service-text">Klíčový prvek rozhodnutí jestli prodat či koupit. Profesionální ocenění firmy kombinací relevantních metod: DCF, tržní komparables, asset-based.</p>
-    </div>
+<div class="duvera">
+  <div class="wrap">
+    <p>Podíleli jsme se na transakcích pro</p>
+    <ul>
+      <li>GECO</li><li>Penta</li><li>Aricoma</li><li>Konsepti</li><li>Premier</li>
+      <li>Adria</li><li>Fortuna</li><li>Dr. Max</li><li>Aero</li><li>LineTech</li>
+      <li>SAB</li><li>Opatovická</li><li>FutureLife</li><li>ČEZ</li>
+    </ul>
   </div>
 </div>
 
-<!-- CLIENTS -->
-<section class="clients-section">
-  <p class="clients-label">Přispěli jsme k akvizičním úspěchům</p>
-  <div class="clients-wrapper">
-    <div class="clients-track">
-      <span class="client-name">GECO</span><div class="client-dot"></div>
-      <span class="client-name">Penta</span><div class="client-dot"></div>
-      <span class="client-name">Aricoma</span><div class="client-dot"></div>
-      <span class="client-name">Konsepti</span><div class="client-dot"></div>
-      <span class="client-name">Premier</span><div class="client-dot"></div>
-      <span class="client-name">Adria</span><div class="client-dot"></div>
-      <span class="client-name">Fortuna</span><div class="client-dot"></div>
-      <span class="client-name">Dr. Max</span><div class="client-dot"></div>
-      <span class="client-name">Aero</span><div class="client-dot"></div>
-      <span class="client-name">LineTech</span><div class="client-dot"></div>
-      <span class="client-name">SAB</span><div class="client-dot"></div>
-      <span class="client-name">Opatovická</span><div class="client-dot"></div>
-      <span class="client-name">FutureLife</span><div class="client-dot"></div>
-      <span class="client-name">ČEZ</span><div class="client-dot"></div>
-      <!-- Duplicated for seamless marquee -->
-      <span class="client-name">GECO</span><div class="client-dot"></div>
-      <span class="client-name">Penta</span><div class="client-dot"></div>
-      <span class="client-name">Aricoma</span><div class="client-dot"></div>
-      <span class="client-name">Konsepti</span><div class="client-dot"></div>
-      <span class="client-name">Premier</span><div class="client-dot"></div>
-      <span class="client-name">Adria</span><div class="client-dot"></div>
-      <span class="client-name">Fortuna</span><div class="client-dot"></div>
-      <span class="client-name">Dr. Max</span><div class="client-dot"></div>
-      <span class="client-name">Aero</span><div class="client-dot"></div>
-      <span class="client-name">LineTech</span><div class="client-dot"></div>
-      <span class="client-name">SAB</span><div class="client-dot"></div>
-      <span class="client-name">Opatovická</span><div class="client-dot"></div>
-      <span class="client-name">FutureLife</span><div class="client-dot"></div>
-      <span class="client-name">ČEZ</span><div class="client-dot"></div>
+<section class="sekce tonovana" id="o-nas">
+  <div class="wrap reveal">
+    <h2 class="section-title">Malý tým, který vede transakci od prvního čísla po podpis</h2>
+    <p class="perex">Propojujeme kupující a prodávající tak, aby obchod dával smysl oběma stranám. Stavíme na datech z účetnictví, znalosti trhu a osobním vedení celého procesu.</p>
+    <div class="onas-fakta">
+      <div><strong>Placeni z výsledku</strong><span>Při prodeji je naše odměna navázaná na uzavřenou transakci a dosaženou cenu.</span></div>
+      <div><strong>Ocenění, které obstojí</strong><span>Metodu volíme podle firmy a každé číslo má ve zprávě svůj zdroj.</span></div>
+      <div><strong>Praxe z bank a fondů</strong><span>Tým s historií v GE Money Bank, Monetě, České spořitelně, PPF a VC.</span></div>
     </div>
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team-section" id="tym">
-  <div class="team-inner">
-    <div class="reveal">
-      <div class="section-label">Lidé za M&Ai</div>
-      <h2 class="section-title">Tým, který stojí<br>za <em>úspěchy</em></h2>
+<section class="sekce" id="sluzby">
+  <div class="wrap sluzby">
+    <div class="sluzby-zahlavi reveal">
+      <h2 class="section-title">Co pro vás <em>uděláme</em></h2>
+      <p class="perex">Od prvního ocenění přes hledání protistrany až k uzavření obchodu.</p>
     </div>
+    <ul class="sluzby-seznam reveal">
+      <li>
+        <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+        <div><h3>Nákup</h3><p>Podle vaší investiční strategie hledáme vhodný cíl a vedeme první fázi jednání. Ukážeme příležitosti, které nejsou na trhu vidět.</p></div>
+      </li>
+      <li>
+        <i class="ph ph-handshake" aria-hidden="true"></i>
+        <div><h3>Prodej</h3><p>Hledáme kupce, který odpovídá představě prodávajícího. Řídíme celý proces od přípravy podkladů po uzavření transakce.</p></div>
+      </li>
+      <li>
+        <i class="ph ph-graph" aria-hidden="true"></i>
+        <div><h3>Propojení</h3><p>Informace předáme těm, kdo je dokážou vyhodnotit. Síť kontaktů otevírá dveře, které jsou jinak zavřené.</p></div>
+      </li>
+      <li>
+        <i class="ph ph-scales" aria-hidden="true"></i>
+        <div><h3>Ocenění</h3><p>Podklad pro rozhodnutí, zda prodat či koupit. Metodu volíme podle firmy: násobek zisku, majetek nebo tržby.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sekce tonovana">
+  <div class="wrap ukazka">
+    <div class="ukazka-obraz reveal">
+      <img src="img/zprava/metodika.webp" alt="Ukázková stránka oceňovací zprávy M&Ai s postupem výpočtu" width="900" height="764" loading="lazy">
+    </div>
+    <div class="reveal">
+      <h2 class="section-title">Ocenění firmy přímo z účetní závěrky</h2>
+      <p class="perex">Nahrajte účetní závěrku nebo zadejte čísla ručně. Kalkulačka vybere metodu a připraví oceňovací zprávu v PDF.</p>
+      <ul class="ukazka-body">
+        <li><i class="ph ph-file-text" aria-hidden="true"></i><span><strong>Zpráva v sazbě M&amp;Ai</strong> s hodnotou, rozpětím a postupem krok za krokem.</span></li>
+        <li><i class="ph ph-buildings" aria-hidden="true"></i><span><strong>Metoda podle firmy.</strong> Firma s vlastní budovou se ocení majetkem, ne násobkem ztráty.</span></li>
+        <li><i class="ph ph-chats-circle" aria-hidden="true"></i><span><strong>Otázky k výsledku</strong> zodpoví asistent nebo poradce M&amp;Ai.</span></li>
+      </ul>
+      <a href="valuace/" class="btn-primary">Ocenit firmu</a>
+    </div>
+  </div>
+</section>
+
+<section class="sekce" id="tym">
+  <div class="team-inner wrap">
+    <h2 class="section-title reveal">Lidé za M&amp;Ai</h2>
     <div class="team-grid reveal">
-
       <div class="team-card">
-        <img src="img/team/david-pavlica.png" alt="David Pavlica" class="team-img" onerror="this.style.display='none'">
+        <img src="img/team/david-pavlica.png" alt="David Pavlica" class="team-img" loading="lazy" onerror="this.style.display='none'">
         <h3 class="team-name">David Pavlica</h3>
-        <p class="team-bio">Od retailových financí přes korporátní až k restrukturalizacím. Projekty s dealy v souhrnné hodnotě několika miliard CZK.</p>
+        <p class="team-bio">Od retailových financí přes korporátní až k restrukturalizacím. Projekty s dealy v souhrnné hodnotě několika miliard Kč.</p>
       </div>
-
       <div class="team-card">
-        <img src="img/team/michal-rodek.png" alt="Michal Rodek" class="team-img" onerror="this.style.display='none'">
+        <img src="img/team/michal-rodek.png" alt="Michal Rodek" class="team-img" loading="lazy" onerror="this.style.display='none'">
         <h3 class="team-name">Michal Rodek</h3>
-        <p class="team-bio">Zkušenosti z GE Money Bank, Moneta a České spořitelny. V M&Ai zodpovídá za spolupráci s investičními fondy a partnery.</p>
+        <p class="team-bio">Zkušenosti z GE Money Bank, Monety a České spořitelny. V M&amp;Ai odpovídá za spolupráci s investičními fondy a partnery.</p>
       </div>
-
       <div class="team-card">
-        <img src="img/team/josef-kliment.png" alt="Josef Kliment" class="team-img" onerror="this.style.display='none'">
+        <img src="img/team/josef-kliment.png" alt="Josef Kliment" class="team-img" loading="lazy" onerror="this.style.display='none'">
         <h3 class="team-name">Josef Kliment</h3>
-        <p class="team-bio">Specialista na finanční účetnictví a přípravu firem na prodej. Ocenění, due diligence podklady a exit strategie.</p>
+        <p class="team-bio">Specialista na finanční účetnictví a přípravu firem na prodej. Ocenění, podklady pro due diligence a exit strategie.</p>
       </div>
-
       <div class="team-card">
-        <img src="img/team/frantisek-tregler.jpg" alt="František Tregler" class="team-img" onerror="this.style.display='none'">
+        <img src="img/team/frantisek-tregler.jpg" alt="František Tregler" class="team-img" loading="lazy" onerror="this.style.display='none'">
         <h3 class="team-name">František Tregler</h3>
-        <p class="team-bio">Zkušenosti ze spolupráce s PPF. Zachraňoval a rozvíjel firmy z různých oblastí, nyní leveraguje zkušenosti moderními technologiemi.</p>
+        <p class="team-bio">Zkušenosti ze spolupráce s PPF. Zachraňoval a rozvíjel firmy z různých oborů, dnes k tomu využívá moderní technologie.</p>
       </div>
-
       <div class="team-card">
-        <img src="img/team/vaclav-gregor.jpeg" alt="Václav Gregor" class="team-img" onerror="this.style.display='none'">
+        <img src="img/team/vaclav-gregor.jpeg" alt="Václav Gregor" class="team-img" loading="lazy" onerror="this.style.display='none'">
         <h3 class="team-name">Václav Gregor</h3>
         <p class="team-bio">VC investor a mentor pro fundraising. Po prodeji podílu v softwarové firmě řídil akvizice startupů do fondové struktury.</p>
       </div>
-
-      <div class="team-card" style="display:flex; align-items:center; justify-content:center; background: rgba(107,63,160,0.05);">
-        <div style="text-align:center;">
-          <div style="font-family:'Archivo Black',serif; font-size:44px; color:rgba(155,89,212,0.2); margin-bottom:10px;">&#10022;</div>
-          <p style="font-size:11px; color:rgba(196,180,255,0.3); letter-spacing:0.25em; text-transform:uppercase;">Rozšiřujeme tým</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- BLOG -->
-<section class="blog-section" id="blog">
-  <div class="blog-inner">
-    <div class="reveal">
-      <div class="section-label">Blog</div>
-      <h2 class="section-title">Znalosti<br><em>& Insights</em></h2>
-    </div>
-    <div class="blog-preview-grid reveal">
-
-      <a href="blog/jak-ocenit-firmu.html" class="blog-preview-card">
-        <span class="blog-preview-tag">Valuace</span>
+<section class="sekce tonovana" id="blog">
+  <div class="blog-inner wrap">
+    <h2 class="section-title reveal">Z blogu</h2>
+    <div class="blog-mrizka reveal">
+      <a href="blog/jak-ocenit-firmu.html" class="blog-preview-card hlavni">
+        <span class="blog-preview-tag">Ocenění</span>
         <h3 class="blog-preview-title">Jak správně ocenit firmu před prodejem</h3>
-        <p class="blog-preview-excerpt">Přehled hlavních metod oceňování, od DCF přes tržní srovnání až po asset-based přístup. Co ovlivňuje výslednou cenu.</p>
-        <span class="blog-preview-meta">10. března 2026 · 6 min čtení</span>
+        <p class="blog-preview-excerpt">Přehled hlavních metod oceňování, od DCF přes tržní srovnání po majetkový přístup, a co ovlivňuje výslednou cenu.</p>
+        <span class="blog-preview-meta">10. března 2026, 6 min čtení</span>
       </a>
-
-      <a href="blog/ai-v-mergery-a-akvizice.html" class="blog-preview-card">
-        <span class="blog-preview-tag">AI &amp; Technologie</span>
-        <h3 class="blog-preview-title">Jak AI mění svět fúzí a akvizic</h3>
-        <p class="blog-preview-excerpt">Umělá inteligence revolučně proměňuje M&amp;A procesy, od vyhledávání targetů přes due diligence až po predikci úspěšnosti.</p>
-        <span class="blog-preview-meta">5. března 2026 · 7 min čtení</span>
-      </a>
-
-      <a href="blog/priprava-firmy-na-prodej.html" class="blog-preview-card">
-        <span class="blog-preview-tag">Prodej firmy</span>
-        <h3 class="blog-preview-title">5 kroků k úspěšné přípravě firmy na prodej</h3>
-        <p class="blog-preview-excerpt">Prodej firmy je jedním z nejdůležitějších rozhodnutí podnikatele. Správná příprava může znamenat rozdíl v řádu milionů.</p>
-        <span class="blog-preview-meta">28. února 2026 · 5 min čtení</span>
-      </a>
-
+      <div class="vedlejsi">
+        <a href="blog/priprava-firmy-na-prodej.html" class="blog-preview-card">
+          <span class="blog-preview-tag">Prodej firmy</span>
+          <h3 class="blog-preview-title">5 kroků k úspěšné přípravě firmy na prodej</h3>
+          <span class="blog-preview-meta">28. února 2026, 5 min čtení</span>
+        </a>
+        <a href="blog/ai-v-mergery-a-akvizice.html" class="blog-preview-card">
+          <span class="blog-preview-tag">Technologie</span>
+          <h3 class="blog-preview-title">Jak AI mění svět fúzí a akvizic</h3>
+          <span class="blog-preview-meta">5. března 2026, 7 min čtení</span>
+        </a>
+      </div>
     </div>
     <a href="blog/" class="blog-all-link">Všechny články</a>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="faq-inner">
-    <div class="reveal">
-      <div class="section-label">Časté otázky</div>
-      <h2 class="section-title" style="margin-bottom:56px;">Co potřebujete<br><em>vědět</em></h2>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Kolik to bude stát?<span class="faq-icon">+</span></div>
-      <div class="faq-a">V případě prodeje jsme placeni až z doručeného výsledku. Naše odměna je tedy přímo závislá na úspěšnosti transakce a výši dosažené ceny.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Jak se zjišťuje hodnota firmy?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Hodnota firmy se určuje kombinací několika metod, včetně analýzy finančních výkazů, tržního srovnání, diskontovaných peněžních toků a zhodnocení nehmotných aktiv. Bereme v úvahu i potenciál růstu a specifika daného odvětví.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Jak obvykle probíhá prodej?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Prodej obvykle zahrnuje přípravu firmy, identifikaci potenciálních kupců, vyjednávání, due diligence a uzavření transakce. Proces může trvat několik měsíců až rok, v závislosti na složitosti transakce.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Jak mi pomůže poradenství při prodeji?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Naše poradenství vám pomůže maximalizovat hodnotu transakce, identifikovat ideální kupce, připravit firmu na prodej, vyjednat nejlepší podmínky a efektivně řídit celý proces. Naše zkušenosti a znalosti trhu vám ušetří čas a minimalizují rizika.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Jak financovat nákup firmy?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Financování nákupu může zahrnovat kombinaci vlastních zdrojů, bankovních úvěrů, private equity investic nebo prodávajícího financování. Pomůžeme vám identifikovat nejvhodnější strukturu financování a představíme vás potenciálním zdrojům kapitálu.</div>
+<section class="sekce" id="faq">
+  <div class="faq-inner wrap">
+    <div class="section-label reveal">Časté otázky</div>
+    <h2 class="section-title reveal">Co potřebujete vědět</h2>
+    <div class="reveal" style="margin-top:32px">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kolik to bude stát?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Při prodeji jsme placeni až z doručeného výsledku. Naše odměna je přímo závislá na úspěšnosti transakce a výši dosažené ceny.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Jak se zjišťuje hodnota firmy?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Metoda se volí podle firmy. Ziskovou firmu oceňujeme násobkem provozního zisku, firmu, jejíž hodnotu drží majetek, čistým majetkem s nemovitostmi v tržní hodnotě. Výsledek ověřujeme druhým přístupem a zohledňujeme rizika a potenciál růstu.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Jak obvykle probíhá prodej?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Prodej zahrnuje přípravu firmy, vyhledání kupců, vyjednávání, due diligence a uzavření transakce. Podle složitosti trvá několik měsíců až rok.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Jak mi pomůže poradenství při prodeji?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Pomůžeme připravit firmu na prodej, najít vhodné kupce, vyjednat podmínky a řídit celý proces. Ušetříte čas a snížíte riziko, že cena při jednání spadne kvůli nepřipraveným podkladům.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Jak financovat nákup firmy?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Financování může kombinovat vlastní zdroje, bankovní úvěry, investice fondů nebo financování prodávajícím. Pomůžeme najít vhodnou strukturu a představíme vás zdrojům kapitálu.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact-section" id="kontakt">
-  <div class="contact-nebula"></div>
   <div class="contact-inner reveal">
-    <div class="section-label" style="justify-content:center;">Kontakt</div>
-    <h2 class="contact-big">
-      Začněme<br>
-      <em>společně</em>
-    </h2>
-    <p style="font-size:15px; color:var(--text-dim); line-height:1.85; margin-bottom:44px;">Každá transakce začíná rozhovorem. Dejte nám vědět o vaší situaci a my vám sdělíme, jak vám můžeme pomoci.</p>
-    <a href="mailto:info@mnai.cz" class="btn-primary">Napsat nám</a>
+    <div class="section-label">Kontakt</div>
+    <h2 class="contact-big">Každá transakce začíná <em>rozhovorem</em></h2>
+    <p style="font-size:18px; color:var(--text-dim); line-height:1.65; margin-bottom:36px;">Napište nám, v jaké situaci jste, a ozveme se s návrhem dalšího postupu.</p>
+    <a href="mailto:info@mnai.cz" class="btn-primary">Domluvit konzultaci</a>
     <div class="contact-info">
       <div class="contact-item"><a href="tel:+420608052501">+420 608 052 501</a></div>
       <div class="contact-item"><a href="mailto:info@mnai.cz">info@mnai.cz</a></div>
-      <div class="contact-item"><a href="#">Varenská 2723/51, Ostrava</a></div>
+      <div class="contact-item"><a href="https://maps.google.com/?q=Varenská+2723/51,+Ostrava">Varenská 2723/51, Ostrava</a></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <div class="footer-logo"><img src="logo/mnai-logo-horizontal.svg" alt="M&Ai" height="32"></div>
-  <nav class="footer-links">
+  <div class="footer-logo"><img src="logo/mnai-logo-horizontal.svg" alt="M&Ai" height="28"></div>
+  <nav class="footer-links" aria-label="Patička">
     <a href="#o-nas">O nás</a>
     <a href="#sluzby">Služby</a>
-    <a href="valuace/">Valuace</a>
+    <a href="valuace/">Ocenění</a>
     <a href="#tym">Tým</a>
     <a href="#kontakt">Kontakt</a>
   </nav>

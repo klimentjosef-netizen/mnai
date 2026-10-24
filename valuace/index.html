@@ -3,78 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valuace &amp; Audit podniku | M&Ai | Zjistěte hodnotu svého podnikání</title>
-<meta name="description" content="Online valuační kalkulačka a audit pro e-commerce podniky. AI analýza finančních dat, KPI a kvalitativních faktorů. Základní odhad zdarma.">
+<title>Ocenění firmy online | M&Ai</title>
+<meta name="description" content="Ocenění firmy z účetní závěrky. Kalkulačka vybere metodu podle firmy a připraví oceňovací zprávu v PDF. Základní ocenění zdarma.">
+<script>try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="icon" href="../logo/mnai-logo-icon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="../img/zprava/shrnuti.webp">
 <link rel="stylesheet" href="../css/style.css">
 <style>
-/* Pricing cards */
-.val-pricing { padding: 120px 64px; background: var(--purple-deep); position: relative; z-index: 1; }
-.val-pricing::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(107,63,160,0.07) 0%, transparent 70%); pointer-events:none; }
-.val-pricing-inner { max-width: 1180px; margin: 0 auto; }
-.val-pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(155,89,212,0.1); margin-top: 56px; }
-.val-price-card { background: var(--purple-dark); padding: 40px 28px; position: relative; transition: background 0.3s; display: flex; flex-direction: column; }
-.val-price-card:hover { background: var(--purple-mid); }
-.val-price-card.featured { border-top: 2px solid var(--purple-bright); }
-.val-price-badge { position:absolute; top:0; left:50%; transform:translate(-50%,-50%); background: linear-gradient(135deg, var(--purple-glow), var(--nebula-pink)); color:#fff; font-size:9px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; padding:4px 14px; white-space:nowrap; }
-.val-price-tier { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--purple-light); margin-bottom:14px; }
-.val-price-amount { font-family:'Archivo Black',serif; font-size:34px; font-weight:400; color:var(--star-white); margin-bottom:6px; }
-.val-price-amount small { font-size:16px; color:var(--text-dim); font-family:'Inter',sans-serif; font-weight:300; }
-.val-price-desc { font-size:13px; color:var(--text-dim); margin-bottom:24px; line-height:1.6; }
-.val-price-features { list-style:none; margin-bottom:28px; flex:1; }
-.val-price-features li { font-size:12px; color:var(--text-dim); padding:7px 0; padding-left:18px; position:relative; line-height:1.5; }
-.val-price-features li::before { content:'\2713'; position:absolute; left:0; color:var(--purple-bright); font-size:11px; }
-.val-price-features li.highlight { color: var(--star-white); font-weight: 400; }
-.val-price-btn { display:block; text-align:center; padding:13px 20px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; color:var(--purple-light); border:1px solid rgba(155,89,212,0.35); transition:all 0.3s; }
-.val-price-btn:hover { background:rgba(155,89,212,0.1); border-color:var(--purple-bright); color:var(--star-white); }
-.val-price-btn.primary { background:linear-gradient(135deg, var(--purple-glow), var(--nebula-pink) 150%); border:none; color:#fff; box-shadow:0 0 20px rgba(107,63,160,0.3); }
-.val-price-btn.primary:hover { box-shadow:0 0 40px rgba(107,63,160,0.5); }
-.val-price-save { text-align:center; margin-bottom:10px; font-size:11px; color:var(--nebula-pink); font-weight:500; }
+/* Postup: svislá osa s krokem pojmenovaným slovesem. */
+.postup { list-style: none; max-width: 760px; margin-top: 48px; border-left: 1px solid var(--line-strong); }
+.postup li { position: relative; padding: 0 0 40px 40px; }
+.postup li:last-child { padding-bottom: 0; }
+.postup li::before {
+  content: ''; position: absolute; left: -6px; top: 8px;
+  width: 11px; height: 11px; background: var(--accent);
+}
+.postup h3 { font-family: var(--serif); font-weight: 400; font-size: 26px; margin-bottom: 8px; }
+.postup p { color: var(--text-dim); max-width: 60ch; }
 
-/* Tři kroky. Dřív inline styl, který mobilní pravidlo nepřebilo. */
-.services-grid.tri { grid-template-columns: repeat(3, 1fr); }
+/* Obsah zprávy: kapitoly. */
+.kapitoly { list-style: none; margin: 28px 0 36px; counter-reset: k; }
+.kapitoly li {
+  counter-increment: k;
+  display: grid; grid-template-columns: 36px minmax(0,1fr); gap: 12px;
+  padding: 14px 0; border-top: 1px solid var(--line);
+}
+.kapitoly li:first-child { border-top-color: var(--line-strong); }
+.kapitoly li::before { content: counter(k); font-family: var(--serif); font-size: 22px; color: var(--accent-text); line-height: 1.2; }
+.kapitoly strong { display: block; font-weight: 600; color: var(--text); }
+.kapitoly span { color: var(--text-dim); font-size: 15px; }
 
-@media (max-width: 900px) {
-  .services-grid.tri { grid-template-columns: 1fr; }
-  .val-pricing { padding: 80px 24px; }
-  .val-pricing-grid { grid-template-columns: 1fr; }
+/* Metody: čtyři dlaždice s odlišným podkladem. */
+.metody { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-top: 48px; }
+.metoda { padding: 36px; border: 1px solid var(--line); background: var(--bg); }
+.metoda i { font-size: 30px; color: var(--accent-text); display: block; margin-bottom: 20px; }
+.metoda h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; margin-bottom: 8px; }
+.metoda p { color: var(--text-dim); font-size: 15px; }
+.metoda.inkoust { background: #1D163F; border-color: #1D163F; color: #F4F0FF; }
+.metoda.inkoust p { color: rgba(244,240,255,0.78); }
+.metoda.inkoust i { color: #FFE8A8; }
+.metoda.zlata { background: color-mix(in srgb, var(--accent) 14%, var(--bg)); border-color: color-mix(in srgb, var(--accent) 35%, var(--bg)); }
+.metoda.tonovana { background: var(--surface-2); }
+
+/* Ceník. */
+.cenik { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
+.tarif { background: var(--bg); padding: 36px 28px; display: flex; flex-direction: column; position: relative; }
+.tarif.doporuceny { background: var(--surface); box-shadow: inset 0 3px 0 var(--accent); }
+.tarif-stitek { font-size: 12px; font-weight: 600; color: var(--accent-text); margin-bottom: 14px; min-height: 18px; }
+.tarif h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; margin-bottom: 6px; }
+.tarif-cena { font-family: var(--serif); font-size: 34px; line-height: 1.2; margin-bottom: 6px; }
+.tarif-cena small { font-family: var(--sans); font-size: 15px; color: var(--text-dim); }
+.tarif-popis { font-size: 14px; color: var(--text-dim); margin-bottom: 22px; min-height: 42px; }
+.tarif ul { list-style: none; margin-bottom: 28px; flex: 1; }
+.tarif li { display: grid; grid-template-columns: 20px minmax(0,1fr); gap: 8px; font-size: 14px; color: var(--text-dim); padding: 6px 0; }
+.tarif li i { color: var(--accent-text); font-size: 16px; line-height: 1.4; }
+.tarif li.navic { color: var(--text); font-weight: 600; }
+.tarif .btn-primary, .tarif .tarif-tl { width: 100%; }
+.tarif-tl {
+  display: inline-flex; justify-content: center; padding: 12px 18px;
+  border: 1px solid var(--line-strong); color: var(--text); text-decoration: none;
+  font-size: 14px; font-weight: 600; transition: border-color 0.2s ease;
+}
+.tarif-tl:hover { border-color: var(--accent); }
+.tarif-pozn { font-size: 13px; color: var(--text-faint); margin-top: 20px; }
+
+@media (max-width: 1040px) { .cenik { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 700px) {
+  .cenik, .metody { grid-template-columns: 1fr; }
+  .metoda { padding: 28px 24px; }
+  .postup li { padding-left: 28px; }
 }
 </style>
 </head>
 <body>
 
-<!-- STARFIELD -->
-<canvas id="starfield"></canvas>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="../" class="nav-logo"><svg class="logo-cube-3d" width="40" height="40" viewBox="0 0 50 50"></svg><span class="logo-text">M&amp;Ai</span></a>
+<nav id="nav" aria-label="Hlavní navigace">
+  <a href="../" class="nav-logo"><svg class="logo-cube-3d" width="40" height="40" viewBox="0 0 50 50" aria-hidden="true"></svg><span class="logo-text">M&amp;Ai</span></a>
   <ul class="nav-links">
     <li><a href="../#o-nas">O nás</a></li>
     <li><a href="../#sluzby">Služby</a></li>
-    <li><a href="./" style="color:var(--purple-light);">Valuace</a></li>
-    <li><a href="../#blog">Blog</a></li>
+    <li><a href="./" aria-current="page">Ocenění</a></li>
     <li><a href="../#tym">Tým</a></li>
-    <li><a href="../#faq">FAQ</a></li>
+    <li><a href="../#blog">Blog</a></li>
+    <li><a href="../#kontakt">Kontakt</a></li>
     <li><a href="/portal?login">Přihlásit se</a></li>
-    <li><a href="../#kontakt" class="nav-cta">Konzultace</a></li>
+    <li><a href="/portal?login" class="nav-cta">Spustit kalkulačku</a></li>
   </ul>
   <div class="nav-controls">
-    <button class="theme-toggle" id="themeToggle" aria-label="Přepnout světlý/tmavý režim" title="Světlý/tmavý režim">
-      <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
+    <button class="theme-toggle" id="themeToggle" aria-label="Přepnout světlý a tmavý režim" title="Světlý a tmavý režim">
+      <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></svg>
     </button>
     <div class="lang-group">
       <a href="../en/" class="lang-toggle" title="English version">EN</a>
@@ -83,304 +104,199 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" style="min-height:85vh;">
-  <div class="nebula-hero"></div>
-  <div class="orbit-ring ring-1"></div>
-  <div class="orbit-ring ring-2"></div>
+<main>
 
-  <div class="hero-content" style="max-width:760px;">
-    <div class="hero-eyebrow">Valuace &amp; Audit podniku</div>
-    <h1 class="hero-title">
-      Kolik stojí<br>váš <em>podnik</em>?
-    </h1>
-    <p class="hero-subtitle">AI kalkulačka, která ocení váš podnik a odhalí, kde necháváte peníze na stole. Základní odhad zdarma, detailní analýza na klik.</p>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Ocenění firmy</div>
+    <h1 class="hero-title">Kolik má vaše firma <em>hodnotu</em>?</h1>
+    <p class="hero-subtitle">Nahrajte účetní závěrku nebo zadejte čísla. Kalkulačka vybere metodu ocenění a připraví zprávu v PDF.</p>
     <div class="hero-actions">
       <a href="/portal?login" class="btn-primary">Spustit kalkulačku</a>
-      <a href="/portal?login" class="btn-secondary">Vstoupit do portálu</a>
+      <a href="#zprava" class="btn-secondary">Ukázka zprávy</a>
     </div>
   </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scrollovat dolů
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="services-wrap" id="jak-to-funguje">
-  <div class="services-header reveal">
-    <div class="section-label">Jak to funguje</div>
-    <h2 class="section-title">Tři kroky<br>k <em>výsledku</em></h2>
-  </div>
-
-  <div class="services-grid tri reveal">
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">01</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <rect x="8" y="6" width="20" height="28" rx="2" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="12" y1="14" x2="24" y2="14" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="12" y1="20" x2="24" y2="20" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="12" y1="26" x2="20" y2="26" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Zadejte data</h3>
-      <p class="service-text">Vyplňte finanční metriky vašeho podniku: tržby, marži, náklady a provozní KPI. Zabere to pár minut.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">02</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="22" cy="22" r="14" stroke="#9B59D4" stroke-width="1.2"/>
-          <path d="M14 22h6l3-8 4 16 3-8h6" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
-        </svg>
-      </div>
-      <h3 class="service-title">AI analýza</h3>
-      <p class="service-text">Algoritmus vyhodnotí data, porovná je s oborovými ukazateli a aplikuje oceňovací metody. Podle zvoleného plánu získáte valuaci, audit, nebo obojí.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">03</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <polyline points="8,32 18,20 24,26 36,10" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
-          <circle cx="36" cy="10" r="3" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Výsledek</h3>
-      <p class="service-text">Obdržíte cenové rozpětí, AI-generovaný expertní report, analýzu rizik a konkrétní doporučení, vše podle zvoleného plánu.</p>
-    </div>
+  <div class="hero-visual" aria-hidden="true">
+    <img class="vzadu" src="../img/zprava/metodika.webp" alt="" width="900" height="764">
+    <img class="vpredu" src="../img/zprava/shrnuti.webp" alt="" width="900" height="713">
   </div>
 </section>
 
-<!-- WHAT YOU GET -two columns: valuation vs audit -->
-<section class="intro" id="co-ziskate">
-  <div class="intro-inner reveal">
-    <div>
-      <div class="section-label">Dva produkty v jedné kalkulačce</div>
-      <p class="tagline">Valuace odpoví<br><em>"kolik to stojí"</em>,<br>audit ukáže<br><em>"kde ztrácíte"</em>.</p>
-    </div>
-    <div class="intro-text">
-      <p><strong style="color:var(--star-white);">Valuace</strong>: zjistěte tržní hodnotu svého podniku. Získáte cenové rozpětí, analýzu 8 kvalitativních dimenzí, rizikové faktory, růstové scénáře a investorský pohled s Exit Readiness Score.</p>
-      <p><strong style="color:var(--star-white);">Audit</strong>: odhalte, kde váš podnik ztrácí peníze. 6 modulů analyzuje ziskovost, marketing, retenci, sklady, ceny a provoz. Výstupem jsou prioritní akce seřazené podle dopadu v korunách.</p>
-      <p>Stejný wizard, stejná data, vy si zvolíte, co potřebujete. Nebo obojí se slevou.</p>
-    </div>
+<section class="sekce tonovana" id="jak-to-funguje">
+  <div class="wrap reveal">
+    <h2 class="section-title">Jak ocenění probíhá</h2>
+    <p class="perex">Základní ocenění je zdarma. Na konci si vyberete, co chcete odemknout.</p>
+    <ol class="postup">
+      <li><h3>Nahrajte podklady</h3><p>Účetní závěrku v PDF, ke každé můžete připsat komentář. Kdo podklady po ruce nemá, zadá tržby a náklady ručně.</p></li>
+      <li><h3>Doplňte, co v závěrce chybí</h3><p>Kalkulačka podklady projde a zeptá se jen na to, co rozhoduje o metodě: odměnu majitele, jednorázové položky, tržní hodnotu nemovitostí.</p></li>
+      <li><h3>Stáhněte zprávu</h3><p>Hodnota s rozpětím, zvolená metoda a postup výpočtu, u každého řádku zdroj čísla.</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="val-pricing" id="ceniky">
-  <div class="val-pricing-inner">
+<section class="sekce" id="zprava">
+  <div class="wrap ukazka">
+    <div class="ukazka-obraz portret reveal">
+      <img src="../img/zprava/titulka.webp" alt="Titulní strana ukázkové oceňovací zprávy M&Ai" width="900" height="1273" loading="lazy">
+    </div>
     <div class="reveal">
-      <div class="section-label">Cenové plány</div>
-      <h2 class="section-title">Vyberte si<br><em>úroveň analýzy</em></h2>
-    </div>
-
-    <div class="val-pricing-grid reveal">
-
-      <!-- FREE -->
-      <div class="val-price-card">
-        <div class="val-price-tier">Free</div>
-        <div class="val-price-amount">Zdarma</div>
-        <p class="val-price-desc">Orientační odhad hodnoty vašeho podniku</p>
-        <ul class="val-price-features">
-          <li>Hlavní valuační číslo s rozpětím</li>
-          <li>3 klíčové insighty (slabina, příležitost, riziko)</li>
-          <li>6 základních metrik (EBITDA, marže, růst, RRS)</li>
-          <li>Vysvětlení metodologie</li>
-        </ul>
-        <a href="/portal?login" class="val-price-btn">Spustit zdarma</a>
-      </div>
-
-      <!-- PRO VALUACE -->
-      <div class="val-price-card">
-        <div class="val-price-tier">Pro Valuace</div>
-        <div class="val-price-amount">6 990 <small>Kč</small></div>
-        <p class="val-price-desc">Kompletní ocenění s AI expertním reportem</p>
-        <ul class="val-price-features">
-          <li class="highlight">Vše z Free +</li>
-          <li>Finanční zdraví (ROA, ROE, ROS vs. benchmark)</li>
-          <li>Business Quality Score (8 dimenzí)</li>
-          <li>Rizikové faktory s dopadem na cenu</li>
-          <li>Růstové scénáře a projekce</li>
-          <li>AI expertní report s investorským pohledem</li>
-          <li>Exit Readiness Score</li>
-          <li>Doporučení pro zvýšení hodnoty</li>
-        </ul>
-        <a href="/portal?login" class="val-price-btn primary">Spustit kalkulačku</a>
-      </div>
-
-      <!-- AUDIT -->
-      <div class="val-price-card">
-        <div class="val-price-tier">Konzultantský Audit</div>
-        <div class="val-price-amount">4 990 <small>Kč</small></div>
-        <p class="val-price-desc">Odhalte, kde váš podnik ztrácí peníze</p>
-        <ul class="val-price-features">
-          <li class="highlight">Vše z Free +</li>
-          <li>Analýza ušlého zisku (Kč/rok)</li>
-          <li>6 audit modulů: ziskovost, marketing, retence, sklady, ceny, provoz</li>
-          <li>Benchmark vs. segment e-commerce</li>
-          <li>Problémy a doporučení pro každý modul</li>
-          <li>Prioritní akce seřazené podle dopadu</li>
-          <li>AI expertní report se SWOT analýzou</li>
-        </ul>
-        <a href="/portal?login" class="val-price-btn">Spustit kalkulačku</a>
-      </div>
-
-      <!-- KOMPLET -->
-      <div class="val-price-card featured">
-        <div class="val-price-badge">Nejlepší hodnota</div>
-        <div class="val-price-tier">Komplet</div>
-        <div class="val-price-amount">9 990 <small>Kč</small></div>
-        <p class="val-price-desc">Pro Valuace + Audit v jednom</p>
-        <ul class="val-price-features">
-          <li class="highlight">Vše z Pro Valuace</li>
-          <li class="highlight">Vše z Auditu</li>
-          <li>Kompletní obraz firmy, hodnota i optimalizace</li>
-          <li>Ideální před prodejem nebo vstupem investora</li>
-        </ul>
-        <div class="val-price-save">Ušetříte 1 990 Kč oproti jednotlivě</div>
-        <a href="/portal?login" class="val-price-btn primary">Spustit kalkulačku</a>
-      </div>
-
+      <h2 class="section-title">Oceňovací zpráva, kterou lze položit na stůl</h2>
+      <p class="perex">Stejná sazba, jakou M&amp;Ai používá pro klienty při prodeji firmy.</p>
+      <ol class="kapitoly">
+        <li><div><strong>Kolik společnost stojí a proč</strong><span>Hodnota, rozpětí a klíčové ukazatele.</span></div></li>
+        <li><div><strong>Jak jsme se k číslu dostali</strong><span>Zvolená metoda a výpočet krok za krokem.</span></div></li>
+        <li><div><strong>Co srazí cenu při prodeji</strong><span>Rizika seřazená podle dopadu na cenu.</span></div></li>
+        <li><div><strong>Co doporučujeme udělat</strong><span>Opatření podle toho, kolik vynesou.</span></div></li>
+        <li><div><strong>Podklady k doplnění</strong><span>Co si kupující vyžádá v prověrce.</span></div></li>
+      </ol>
+      <a href="/portal?login" class="btn-primary">Spustit kalkulačku</a>
     </div>
   </div>
 </section>
 
-<!-- WHAT HAPPENS NEXT -->
-<div class="services-wrap" id="co-dal">
-  <div class="services-header reveal">
-    <div class="section-label">Co se bude dít dál</div>
-    <h2 class="section-title">Po výpočtu<br><em>nezůstanete sami</em></h2>
-  </div>
-
-  <div class="services-grid reveal">
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">01</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <rect x="6" y="6" width="32" height="32" rx="3" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="6" y1="16" x2="38" y2="16" stroke="#9B59D4" stroke-width="1.2"/>
-          <polyline points="14,24 18,30 28,20" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
-        </svg>
+<section class="sekce tonovana" id="metoda">
+  <div class="wrap reveal">
+    <h2 class="section-title">Metoda podle firmy, ne podle šablony</h2>
+    <p class="perex">Kalkulačka metodu vybírá z účetních výkazů a vysvětlí, proč ostatní odmítla.</p>
+    <div class="metody">
+      <div class="metoda inkoust">
+        <i class="ph ph-chart-line-up" aria-hidden="true"></i>
+        <h3>Zisková firma</h3>
+        <p>Násobek provozního zisku po očištění o jednorázové položky a odměnu majitele.</p>
       </div>
-      <h3 class="service-title">Okamžitý výsledek</h3>
-      <p class="service-text">Ihned po vyplnění získáte orientační odhad zdarma. Placené plány odemknete jedním klikem a výsledek se rozšíří o detailní analýzu.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">02</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="16" cy="16" r="8" stroke="#9B59D4" stroke-width="1.2"/>
-          <circle cx="28" cy="28" r="8" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
+      <div class="metoda zlata">
+        <i class="ph ph-buildings" aria-hidden="true"></i>
+        <h3>Hodnotu drží majetek</h3>
+        <p>Penzion, hotel nebo areál ve vlastnictví firmy. Čistý majetek s nemovitostmi v tržní hodnotě.</p>
       </div>
-      <h3 class="service-title">Konzultace s expertem</h3>
-      <p class="service-text">Chcete výsledek probrat? Nabízíme konzultaci, kde vám vysvětlíme, co čísla znamenají a jaké jsou vaše možnosti.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">03</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <rect x="8" y="8" width="28" height="28" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="8" y1="22" x2="36" y2="22" stroke="#9B59D4" stroke-width="1.2"/>
-          <line x1="22" y1="8" x2="22" y2="36" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
+      <div class="metoda tonovana">
+        <i class="ph ph-trend-up" aria-hidden="true"></i>
+        <h3>Ztráta, ale rychlý růst</h3>
+        <p>Když zisk zatím není co násobit a tržby rostou, oceňují se tržby.</p>
       </div>
-      <h3 class="service-title">Profesionální valuace</h3>
-      <p class="service-text">Potřebujete závazné ocenění? Náš tým připraví detailní valuační report na míru, ideální podklad pro jednání s kupcem či investorem.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-glow"></div>
-      <div class="service-num">04</div>
-      <div class="service-icon-wrap">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="22" cy="22" r="14" stroke="#9B59D4" stroke-width="1.2"/>
-          <polyline points="16,22 22,15 28,22" stroke="#9B59D4" stroke-width="1.2" fill="none"/>
-          <line x1="22" y1="15" x2="22" y2="31" stroke="#9B59D4" stroke-width="1.2"/>
-        </svg>
+      <div class="metoda">
+        <i class="ph ph-package" aria-hidden="true"></i>
+        <h3>Ztráta bez růstu</h3>
+        <p>Hodnota, kterou by dal rozprodej majetku, se srážkou za jeho prodej.</p>
       </div>
-      <h3 class="service-title">Prodej s M&amp;Ai</h3>
-      <p class="service-text">Pokud se rozhodnete prodávat, provedeme vás celým procesem: od přípravy firmy, přes vyhledání kupce, až po uzavření transakce.</p>
-    </div>
-  </div>
-</div>
-
-<!-- FAQ -->
-<section class="faq-section">
-  <div class="faq-inner">
-    <div class="reveal">
-      <div class="section-label">Časté otázky</div>
-      <h2 class="section-title" style="margin-bottom:56px;">Vše o<br><em>kalkulačce</em></h2>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Jaký je rozdíl mezi valuací a auditem?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Valuace odpovídá na otázku "kolik můj podnik stojí", dostanete cenové rozpětí, analýzu kvality byznysu a investorský pohled. Audit odpovídá na otázku "kde ztrácím peníze", analyzuje 6 oblastí vašeho podnikání a ukáže konkrétní kroky ke zlepšení s vyčísleným dopadem v korunách.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Co přesně dostanu zdarma?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Orientační odhad hodnoty podniku s rozpětím, 3 klíčové insighty (největší slabina, příležitost a riziko) a 6 základních metrik včetně EBITDA, marží a růstu. Pro detailnější analýzu si můžete odemknout placený plán.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Jsou moje data v bezpečí?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Ano. Ocenění pracuje s citlivými údaji, jako jsou účetní závěrky a hospodářské výsledky, proto je kalkulačka přístupná jen po registraci. Každá analýza je vázaná na konkrétní účet a vidí ji pouze jeho majitel a pověřený poradce M&amp;Ai. Data zpracováváme výhradně pro účely ocenění a auditu.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Pro koho je kalkulačka určena?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Pro majitele e-commerce podniků, kteří zvažují prodej, vstup investora, chtějí optimalizovat byznys, nebo prostě chtějí znát aktuální tržní hodnotu svého podniku.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Můžu si plán upgradovat později?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Ano. Můžete začít s Free verzí a kdykoliv po zobrazení výsledků odemknout Pro Valuaci, Audit nebo Komplet. Data nemusíte zadávat znovu.</div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-q">Potřebuji pak ještě profesionální valuaci?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Kalkulačka poskytuje kvalitní orientační odhad. Pokud plánujete reálný prodej nebo vstup investora a potřebujete závazné ocenění, doporučujeme navázat profesionální valuací od našeho týmu. Kalkulačka je ideální první krok.</div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="contact-section">
-  <div class="contact-nebula"></div>
+<section class="sekce" id="ceniky">
+  <div class="wrap reveal">
+    <h2 class="section-title">Ceník</h2>
+    <p class="perex">Platíte jednou za konkrétní ocenění. Rozšíření dokoupíte kdykoli později, data zadáváte jen jednou.</p>
+    <div class="cenik">
+      <div class="tarif">
+        <div class="tarif-stitek"></div>
+        <h3>Základ</h3>
+        <div class="tarif-cena">Zdarma</div>
+        <p class="tarif-popis">Orientační hodnota firmy a zvolená metoda.</p>
+        <ul>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Hodnota s rozpětím</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Metoda a proč byla zvolena</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Tržby, marže a růst</li>
+        </ul>
+        <a href="/portal?login" class="tarif-tl">Začít zdarma</a>
+      </div>
+      <div class="tarif">
+        <div class="tarif-stitek"></div>
+        <h3>PRO ocenění</h3>
+        <div class="tarif-cena">6 990 <small>Kč</small></div>
+        <p class="tarif-popis">Kompletní ocenění se zprávou v PDF.</p>
+        <ul>
+          <li class="navic"><i class="ph ph-plus" aria-hidden="true"></i>Vše ze základu</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Oceňovací zpráva v PDF</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Rizika s dopadem na cenu</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Plán, jak hodnotu zvýšit</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Pohled investora</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Otázky k ocenění asistentovi i poradci</li>
+        </ul>
+        <a href="/portal?login" class="tarif-tl">Spustit kalkulačku</a>
+      </div>
+      <div class="tarif">
+        <div class="tarif-stitek">Zatím pro e-shopy</div>
+        <h3>Audit</h3>
+        <div class="tarif-cena">4 990 <small>Kč</small></div>
+        <p class="tarif-popis">Kde e-shop ztrácí zisk a co s tím.</p>
+        <ul>
+          <li class="navic"><i class="ph ph-plus" aria-hidden="true"></i>Vše ze základu</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Ušlý zisk v Kč za rok</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Marže, marketing, retence, sklad, ceny</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Kroky seřazené podle dopadu</li>
+        </ul>
+        <a href="/portal?login" class="tarif-tl">Spustit kalkulačku</a>
+      </div>
+      <div class="tarif doporuceny">
+        <div class="tarif-stitek">Ušetříte 1 990 Kč</div>
+        <h3>Komplet</h3>
+        <div class="tarif-cena">9 990 <small>Kč</small></div>
+        <p class="tarif-popis">PRO ocenění a audit dohromady.</p>
+        <ul>
+          <li class="navic"><i class="ph ph-plus" aria-hidden="true"></i>Vše z PRO ocenění</li>
+          <li class="navic"><i class="ph ph-plus" aria-hidden="true"></i>Vše z auditu</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Podklad před prodejem nebo vstupem investora</li>
+        </ul>
+        <a href="/portal?login" class="btn-primary">Spustit kalkulačku</a>
+      </div>
+    </div>
+    <p class="tarif-pozn">Audit stojí na srovnání s e-shopy, pro ostatní obory ho připravujeme.</p>
+  </div>
+</section>
+
+<section class="sekce" id="faq">
+  <div class="faq-inner wrap">
+    <div class="section-label reveal">Časté otázky</div>
+    <h2 class="section-title reveal">Vše o kalkulačce</h2>
+    <div class="reveal" style="margin-top:32px">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Pro jaké firmy je kalkulačka určená?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Pro e-shopy, obchod, výrobu i služby. Průvodce se ptá podle typu firmy, ubytování se tak neptá na sklad ani reklamu. Audit ušlého zisku je zatím jen pro e-shopy.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Co když je firma ve ztrátě?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">I ztrátovou firmu ocení. Když hodnotu drží majetek, například vlastní budova, použije čistý majetek s nemovitostmi v tržní hodnotě. Rostoucí firmu ocení podle tržeb.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Co přesně dostanu zdarma?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Hodnotu firmy s rozpětím, zvolenou metodu s vysvětlením a základní ukazatele. Zprávu v PDF, rizika a plán zvýšení hodnoty odemknete v PRO ocenění.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Jsou moje data v bezpečí?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Ano. Ocenění pracuje s citlivými údaji, jako jsou účetní závěrky a hospodářské výsledky, proto je kalkulačka přístupná jen po registraci. Každá analýza je vázaná na konkrétní účet a vidí ji pouze jeho majitel a pověřený poradce M&amp;Ai. Data zpracováváme výhradně pro účely ocenění a auditu.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Můžu rozšíření dokoupit později?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Ano. Uložené ocenění otevřete kdykoli a PRO nebo audit dokoupíte bez nového zadávání dat.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Potřebuji pak ještě ocenění od znalce?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Kalkulačka dává podložený orientační odhad. Pro reálný prodej nebo vstup investora doporučujeme navázat oceněním od týmu M&amp;Ai, který zprávu doplní o prověrku podkladů a jednání s kupcem.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="kontakt">
   <div class="contact-inner reveal">
-    <div class="section-label" style="justify-content:center;">Připraveni?</div>
-    <h2 class="contact-big">
-      Zjistěte hodnotu<br>
-      <em>svého podniku</em>
-    </h2>
-    <p style="font-size:15px; color:var(--text-dim); line-height:1.85; margin-bottom:44px;">Začněte zdarma. Pár minut a budete vědět, kolik váš byznys stojí a kde ho můžete zlepšit.</p>
-    <a href="/portal?login" class="btn-primary">Spustit kalkulačku</a>
-    <div class="contact-info" style="margin-top:40px;">
-      <div class="contact-item"><a href="mailto:info@mnai.cz">Raději rovnou konzultace? Napište nám.</a></div>
+    <h2 class="contact-big">Po výpočtu nezůstanete <em>sami</em></h2>
+    <p style="font-size:18px; color:var(--text-dim); line-height:1.65; margin-bottom:36px;">Výsledek s vámi probere poradce M&amp;Ai. Když se rozhodnete prodávat, provedeme vás celým procesem.</p>
+    <div class="hero-actions">
+      <a href="/portal?login" class="btn-primary">Spustit kalkulačku</a>
+      <a href="mailto:info@mnai.cz" class="btn-secondary">Domluvit konzultaci</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <div class="footer-logo"><img src="../logo/mnai-logo-horizontal.svg" alt="M&Ai" height="32"></div>
-  <nav class="footer-links">
+  <div class="footer-logo"><img src="../logo/mnai-logo-horizontal.svg" alt="M&Ai" height="28"></div>
+  <nav class="footer-links" aria-label="Patička">
     <a href="../#o-nas">O nás</a>
     <a href="../#sluzby">Služby</a>
-    <a href="./">Valuace</a>
+    <a href="./">Ocenění</a>
     <a href="../#kontakt">Kontakt</a>
   </nav>
   <p class="footer-copy">&copy; 2026 M&Ai, Varenská 2723/51, Ostrava</p>
